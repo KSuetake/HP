@@ -1,0 +1,236 @@
+<!-- wp:paragraph -->
+<p>ここは読み終えた本の書評を書き留める場所。随時更新。<br>世間的な書評指南によると、書評と言うよりは所感と呼ぶべきかもしれない。<br>しかし書評と言い切った方がなんかカッコいいので気にしない。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>参考資料（書評の書き方）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="https://docoic.com/37626" title="書評とはなにか&nbsp;書評を書くときの注意点とコツ&nbsp;読書感想文との違い">書評とはなにか&nbsp;書評を書くときの注意点とコツ&nbsp;読書感想文との違い</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="https://www.library.osaka-u.ac.jp/doc/2020_How_to_write_a_book_review.pdf" title="書評の書き方（大阪大学）">書評の書き方（大阪大学）</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="https://forest-god.com/20190504-2/" title="書評の書き方を徹底解説！テンプレートの活用で誰でも簡単に【初心者向け】">書評の書き方を徹底解説！テンプレートの活用で誰でも簡単に【初心者向け】</a></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>批評するのがポイント！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">読み・書き・話し</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">本を読む本</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F921982%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&item_id=10661713&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F2995%2F9784061592995.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+Mortimer J. Adler and Charles Van Doren "How to Read a Book" (1940, 1972) の邦訳。<br>
+　『「読む」という行為には、いついかなる場合でも、ある程度、積極性が必要である。』『積極性の高い読書ほど、良い読書だということをとくに指摘したい。』『一生のあいだずっと学びつづけ、「発見」しつづけるには、いかにして書物を最良の師とするか、それを心得ることが大切なのである。この本は、何よりもまず、そのために書かれたものである。』
+<details>
+  <summary>詳細</summary>
+　読書から多くの学びを得られることに異論のある者は少ないだろう。しかし書くことや話すことと比べると、読むことはまったく受動的だと思われがちなのではなかろうか。実はそれは大きな誤解であり、多くの学びを得るためには読書にも積極性が必要であると著者は説く。積極的読書のためには、読んでいる間に質問をして、さらに読み続ける間に自身で回答するよう努力しなければならない。本書ではそのための積極的読書術を四つのレベル「初級読書」・「点検読書」・「分析読書」・「シントピカル読書」に分けて解説している。「初級読書」とは書かれていることを文単位で理解しながら通読できるレベルの読み方であり、読者は初級読書を習得済みであることを前提としている。それ以降の積極的読書術を解説するのが本書の主眼だ。<br>
+　二番目のレベルである「点検読書」とはその本の主題や構成を理解するための読み方であり、以降の積極的読書レベルの準備としても仮定される。点検読書は組織的な拾い読みと表面読みという二つの技術からなる。拾い読みでは表題・序文・目次・索引・帯などにも目を通した上で、議論のかなめと思われる本文のいくつかをよく見る。表面読みでは理解できずとも立ち止まらずにとにかく本の全体を読み通す。そうして念入りに読むに値するか否かを判断する。細部まで理解したいのであれば、まずこの段階で本の全体の把握までは済ませた上で次の積極的読書レベルへ進む。<br>
+　三番目のレベルである「分析読書」とはその本の内容を徹底的に理解するための読み方であり、正しい批評により著者に語り返すことまでを要求する。その読書術は「概略」「解釈」「批評」の三段階からなる。まず概略として本の構造をつかみ、その本が答えようとしているすべての問いかけを正しく把握して整理する。次に解釈として著者の名辞（単語の表す意味）・命題・論証を特定し、当初の問いかけに対する著者の解決を検討する。最後に批評として著者に対して「賛成」・「反対」・「判断保留」のいずれかの態度を明らかにし、その判断根拠も明らかにする。<br>
+　最終レベルである「シントピカル読書（比較読書法）」とは一つの主題について多くの本を関連付けて理解するための読み方であり、本ではなく読者すなわち自分を優先させるという意味で極めて積極性の高い読書術だ。（科学者にはサーベイとしてよく知られた文献調査術に相当する。）この読書術に取り掛かるには準備として主題に関する文献表を作り、点検読書により主題との関連度を事前に調べておく必要がある。その後、関連度の高い文献から更に関連の深い箇所を特定しつつ、特定の著者に偏らない用語の使い方を読者の都合で定める。その上で命題すらも読者が定める。そしてその命題に対する著者らの答えを整理して論点を明確にする。最終的に命題と論点を整理して論考を分析し、読者としての判断を明らかにする。<br>
+　以上が著者の説く積極的読書術の概要だ。ここで主とする本の分類は教養書であるものの、文学の読み方についても一部を割いて述べてある。文学に対しては教養書と全く同じ技術が通用しないにしてもなお、やはり、積極的読書が重要と説き、そのための技術を提示している。<br>
+　ここで「シントピカル」とは多くの者にとって聞きなれない造語だろうからいくらか補足しておく。「シントピカル」は syntopical と綴られ、原著者アドラーの主業績のひとつである「シントピコン（A Syntopicon: An Index to The Great Ideas）」に由来する。「シントピコン」とは本書にも触れられている通り、アドラー自身が編集を務めた「Great Books of the Western World」なる長大な叢書に対する、時代や著者を超えた相互参照を可能とするための索引書だ。こうした背景をおさえておくと「一つの主題について多くの本を関連付け」る読み方という「シントピカル読書」の本質をより理解できるのではなかろうか。<br>
+　さて私は本書を、何かから何かを学ぼうという意欲が毛程も無い者を除いて全ての者に推薦したい。原著者が言うには「初級読書」は小学校、「分析読書」は高校、「シントピカル読書」は大学学部ないし大学院で修めるべき技術とのことだ。しかしそれと同時に原著者は、「初級読書」以外の読書術を心得ていない大人が多くいる現状（1940年当時）を憂いてもいる。そうした状況は当時に限らず現代（2023年）でも相変わらずではなかろうか。翻訳者による後書きにも指摘されている日本特有の含みのある表現を美徳とする風潮や文単位での作文・読書が好まれる傾向を鑑みると、特に日本人は上級の積極的読書を修得する動機に欠けるのではないかと推測できる。それに加えて昨今のSNSの発達は極めて短い文面によるコミュニケーションを増長させてきた。そうしたコミュニケーションはコンテクストを充分に共有できているコミュニティ間ではよく機能するかもしれない。しかしそこだけに身を置いていてはコンテクストを文面で読み書きする力が養われないのではないかと私は危惧する。数千年の時を超えて精神を交えられるのが読書の大きな魅力のひとつではあるものの、果たして現代人はそうした時代を超えた対話に堪えうるだろうか。高校までの国語教育はそうした問題の打開策を講じているとはとても思えないし（ゆとり世代特有ですか？）、大学でも一部の熱心な機関を除いて学生自身の気づきに委ねられているのではなかろうか。どんな国語教科書よりもまず本書を読みなさい。かねてより読書から学びを得ている者にとっては当たり前のことばかりが羅列されているように映るやもしれぬが、それでもなお本書は当たり前のことを当たり前だと再認識できる意義のある本だ。情報化社会が加速する現代でもなお色褪せない、いやむしろ、だからこそリテラシーを育むためにより必要とされる良書だ。<br>
+　余談：本を自分の血肉とするために、本に書き込みながら読む習慣を著者は薦めている。しかし鉛筆を持ちながら読むのも面倒だし、私は iPhone や iPad にメモしながら読むことにしている。
+</details></br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">成果を生み出すテクニカルライティング</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15780610%2F&amp;link_type=pict&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&amp;item_id=19463054&amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F4061%2F9784297104061.jpg%3F_ex%3D240x240&amp;s=240x240&amp;t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+著 藤田肇、2019。<br>
+　『言語化こそが「サイエンス」の過程になる。』（p59）
+<details>
+  <summary>詳細</summary>
+　すべての頭脳労働者に向けて、思考の言語化を通じたコミュニケーション能力の重要性を力説。それと同時にテクニカルライティングという切り口から、黄金フォーマットなる表現手法を提供。（一般にテクニカルライティングと言ったら、ロジカルであるのみならず相手に伝わる技術文書を作成するためのスキルを指すことが多い。しかし本書では内省的な側面に焦点を当てている。）黄金フォーマットでは「背景・課題・手段・結論」の、直列な流れではなく立体的な関係性に注意を払う。例えば進捗報告に適用した場合、PDCA（plan–do–check–act）で言うところの D だけでなく P・C との関係性を浮き彫りにすることで適切な A の策定や周囲のフォローを得られる。他にプレゼン・研究企画書・論文における実践例も有り。<br>
+　すべての頭脳労働者および彼らを管理する立場にある者に本書をおすすめする。ただし説明は冗長の感がありページ数ほどの内容は無いし、科学における言語化の役割を熟知しているのであれば新たな知見は多くないかもしれない。それでも思考整理の「型」の補強に役立つと言う点で一読の価値有り。なお著者も触れている通り作文術を養うことは目的としていないので他所で鍛える必要有り。
+</details></br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">できる研究者の論文生産術ーどうすれば「たくさん」書けるのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F9228209%2F&amp;link_type=pict&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&amp;item_id=15132202&amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1536%2F9784061531536.jpg%3F_ex%3D240x240&amp;s=240x240&amp;t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+Paul J. Silvia "How to Write a Lot (2007)" の邦訳。<br>
+<details>
+  <summary>詳細</summary>
+　時間を見つけて書くのではなく、スケジュール化して書くことを習慣付ける。そうしてその他の仕事と同じく書くことを正式な仕事の一部とする。以上がほぼすべて。<br>
+　学術論文の執筆〜投稿〜採択の一連の作業に対する心構えや文体のコツにもいくらか言及しているので、これらに関する知識の無い研究初心者には文書作成術入門の一冊としておすすめする。英語論文を書いた経験の浅い者は第5章（文体について）と第6章（学術論文を書く）だけでも目を通しておくと良いだろう。心構えができたら次はアウトライン作成術や文体に関する勉強を始めよう。
+</details><br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">「質問力」って、じつは仕事を有利に進める最強のスキルなんです</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16094295%2F&amp;link_type=pict&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&amp;item_id=19811765&amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F8590%2F9784804718590.jpg%3F_ex%3D240x240&amp;s=240x240&amp;t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+著 ひきたよしあき、2019。<br>
+<details>
+  <summary>詳細</summary>
+　対象とする「質問力」が指すのは『相手の意見を取り入れて、共感と感情移入を起こさせながら、自分の仕事を強く、太く、大きくしていくためのスキル』。逆に、売名行為や屁理屈な反対意見、調べればすぐに分かることを問うためのものではない。対話や判断を前進に導くための質問メソッドが使い方のコツとともに解説されている。25項目に分割して列挙されている点が実践的な観点で嬉しい。これは普段から使えているな、これは自分には向いていないな、次はこれを試してみよう、などメソッドを意識した対話をしている内に自然と質問脳が出来上がっていくこと請け合い。特に11〜15番目のメソッドは型として実践しやすい。<br>
+　質問力は本書のメインターゲットであるビジネスシーンだけでなくあらゆる対話の場面で活きるスキルとしてあらゆる者が身につけるべきスキルだ。ただしテクノロジーやイノベーションが主眼ではなく、あくまでコミュニケーション促進のためのスキルであることに注意する。対話から導かれた目標に対してどのような方策を練るかは別の問題なのだ。また書きっぷりに関しては、会話形式で記述されているので本を読み慣れていない読者でもすらすらと読めるだろう。最後の最後の質問に至るまでのストーリーも心地良い。
+</details><br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">科学</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">サイバネティックスー動物と機械における制御と通信</h3>
+<!-- /wp:heading -->
+
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F11226560%2F&amp;link_type=pict&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&amp;item_id=14696807&amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F4816%2F9784003394816.jpg%3F_ex%3D240x240&amp;s=240x240&amp;t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+Norbert Wiener&nbsp;"Cybernetics, Second edition (1948, 1961)"&nbsp;の邦訳。<br>
+　『そこでわれわれは制御と通信理論の全領域を機械のことでも動物のことでも、ひっくるめて「サイバネティックス（Cybernetics）」という語でよぶことにしたのである。』
+<details>
+  <summary>詳細</summary>
+　1947年夏にウィーナーらが提唱したサイバネティックスは、統計的情報論をもって制御と通信を論じることで、科学という名を冠するおおよそ全ての分野を俯瞰するための枠組みを与えた。今日的には非線形フィードバックとして馴染み深い理論の、その萌芽を、臨場感あふれる筆致で感じられる。特に2012年以降大躍進を続けるニューラルネットワークの原型が随所に見受けられる点からはウィーナーの卓越した洞察力が垣間見える。その後の多くの科学者・哲学者に影響を与えたのも納得である。<br>
+　数学理論として真剣に理解するつもりで読んではならない、ウィーナーの哲学を楽しむための本。翻訳のせいか本論部分はとても読みづらい。付録の社会学者による解説がなぜかキレイにまとまっているので、はじめに目を通しておくと良いかも。
+</details><br>
+</div>
+<!-- /wp:html --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">絵で見てわかる量子コンピュータの仕組み</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15792726%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&item_id=19481636&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F7467%2F9784798157467.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+著 宇津木健、2019。<br>
+　『本書は、物理学の専門家でない方に、量子コンピュータに携わる最初の「入り口」として使ってもらえることを目指して執筆した解説書です。』『本書は、一般向け解説と専門書／論文の間の位置付けで、量子コンピュータ関連の情報のガイドマップとなることを目指しました。』
+<details>
+  <summary>詳細</summary>
+　著者によるはしがき通り、本書は量子コンピュータ関連の情報収集を始めるのに必要なエッセンスの詰まった良好なガイドブックである。特にコンピュータや量子力学の事前知識を仮定しないので、コンピュータ技術者はもとより一般のビジネスパーソンや科学愛好家にも量子コンピュータはじめの一冊としてお勧めできる。ありがちな一般書とは違って量子コンピュータ特有の専門用語が多数出てくるけれど、どれも平易な言葉で解説されている。それらの助けもあって、過度に誤魔化すことなく適度な塩梅で量子コンピュータのエッセンスを理解できる。<br>
+　中身に関しては、量子コンピュータの原理と用途が開発ロードマップと共にバランスよく配置されている。例えば量子回路の初歩を解説しつつも、量子アルゴリズムについてはその回路の組み方よりもその量子高速化のポイントの解説に重きを置いている。なぜそのような回路を組むのかといった技術的詳細は他書に任せるという割り切ったスタンスも、本書のガイドブックという性質を踏まえれば適当であろう。また、今後一層の研究開発が見込まれる NISQ アルゴリズムや量子古典ハイブリッドアルゴリズムをはじめとしたゲート方式の解説に重きを置きつつも、用途特化型のアニーリング方式にもひとつの章を割いており、これ一冊で両方式をカバーできるのも嬉しい。<br>
+　本書を読んで、決して過度ではなく適度な期待を持って量子コンピュータの世界に飛び込もう！<br>
+　注意：私が初読した2019年から現在（2023年）まで、量子コンピュータのガイドラインとして大筋は変わらず機能していそう。ただし量子コンピュータは発展途上の分野なので同じ状況がいつまで続くかは分からない。
+</details><br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">先読み！IT×ビジネス講座&nbsp;量子コンピューター</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17517842%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&item_id=20971013&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F7370%2F9784295017370_1_2.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+著 湊雄一郎・酒井麻里子、2023。<br>
+対話形式で綴られた量子コンピュータの入門書。
+<details>
+  <summary>詳細</summary>
+　似た立ち位置のガイドブックである『絵で見てわかる量子コンピュータの仕組み』と比べると、全体的な内容の濃さで物足りなく感じてしまう。ただしそちらと比べると、こちらではハードウェア開発の動向に関する記述が充実しているのが長所である。また立ち読みするのであれば量子コンピュータの活躍が見込まれる分野を概観した第4章を薦める。<br>
+　内容に関して気になった点がひとつ。量子もつれは量子的な状態の組み合わせ数を削減して計算を効率化させるのに役立つ、とのアイディアが紹介されている。このアイディアが量子計算の芯を喰ったものであるのか自分には判断できなかった。もし量子もつれが計算の効率化だけに効くのであれば、量子もつれの無い量子力学による量子計算（&#x2049;︎）でも何らかの量子優越性を期待できることになりそうだが・・・果たしてそんなものが存在するのか？<br>
+</details><br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">読み物</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">イシューからはじめよー知的生産の「シンプルな本質」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F6868931%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&item_id=14063593&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F0852%2F9784862760852_1_3.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+著 安宅和人、2010。<br>
+バリューのある仕事とは？生産性を上げるための本質とは？
+<details>
+  <summary>詳細</summary>
+　本書は知的活動の生産性を上げるためのシンプルな本質的原則としてイシューからはじめること、すなわち、実際に問題を解くことよりもまず先に問題を見極めることの重要性および実践法を説く。本書の構成は序章（この本の考え方）・第1章（イシュードリブン）のイシューからはじめるべき理由と良いイシューの条件、良いイシューの見極め方を述べる部分がメインである。以降の第2章（仮説ドリブン①）・第3章（仮説ドリブン②）・第4章（アウトプットドリブン）・第5章（メッセージドリブン）はイシューの要素である仮説の磨き方・砕き方、分析の始め方・進め方・まとめ方を述べており、他書が述べるような問題解決技術やテクニカルライティングと大きく異なる部分は無いものの、詳細な問いを立てるときや実際の分析を進める場合にもイシューから導いたストーリーを中心とする点で一定の個性を持っている。<br>
+<br>
+【序章：イシューからはじめるとはどういうことか？なぜイシューからはじめるのか？】<br>
+　本書を読むにあたってはまず『イシュー』という語彙の定義に注意が必要である。単に issue = an important topic for discussion というだけでなく、『2つ以上の集団の間で決着のついていない問題』かつ『根本に関わる、もしくは白黒がはっきりしていない問題』という両方の条件を満たすものを本書では『イシュー』と呼んでいる。そして『イシューからはじめる』とは『「問題を解く」より「問題を見極める」』ことを重視する考え方を標語的に表したものである。なぜ知的活動の生産性を上げるためにはイシューからはじめるべきか？本書では次のように極めて簡潔に論拠を示している。まず『バリューのある仕事』とは『イシュー度』およびその『解の質』が高い仕事のことと定義する。ここで『イシュー度』とは『自分のおかれた局面でこの問題に答えを出す必要性の高さ』を、『解の質』とは『そのイシューに対してどこまで明確に答えを出せているかの度合い』を指す。次に、問題と思っているもののうち本当に取り組むべき問題、すなわちイシュー度の高い問題はそんなに多く存在しないという重要な仮説を置く。そうして、イシュー度の低い問題について一生懸命に時間を無駄に費やすのではなく、イシュー度の見極めからはじめることでバリューの無い仕事を排除することによって生産性が上がるという結論が得られる。<br>
+<br>
+【第1章：良いイシューの見極め方】<br>
+　第1章では良いイシューが満たすべき条件として次の3つを挙げている。1. 『本質的な選択肢である』：『それに答えが出るとそこから先の検討方向性に大きく影響を与えるもの』である。2. 『深い仮説がある』：『常識を覆すような洞察』や『新しい構造』を含む。3. 『答えを出せる』：『きっちりと答えを出せる』、特に『自分の手法ならば答えを出せる』ものである。特に第2の条件が含むように良いイシューを見極めるためには明確な仮説を立てる必要がある。問題を解く前に問題を見極めよとは言え、仮説を立てるための事前調査は必要である。実践にあたっては事前調査は多角的かつ努めて浅く、そして仮説を立てたら検証によって仮説を刷新するサイクルを迅速に繰り返すべしと説いている。
+<br>
+【第2〜5章：イシューを軸として解の質を上げる】<br>
+　第2章以降では、見極めたイシューに対してその解の質を高めるための方法論が述べてある。解の質を高めるためにはイシューを適度に分解して、分解したサブイシューに対して更なる仮説を立てて、それらをストーリーラインとして組み立てる。納得・感動・共感を得るためには仮説をストーリー立てる必要があるのだ。更に踏み込んで、ストーリーラインの個々のサブイシューに対して必要な分析のイメージを固める。また実際の分析は、カギとなるサブイシューから、どちらに倒れても意味のある検証から始めるのが鉄則である。こうした一連の作業のポイントが具体例とともに述べられており、やはりカギとなるのはイシュー指向だ。<br>
+<br>
+【所感】<br>
+　私は分析をこなす現場作業者も意思決定に携わるマネジャも含めてあらゆる頭脳労働者に本書を薦める。イシューからはじめよという標語はとてもシンプルではあるものの極めて理に適ったアプローチであり、それを実践するのとしないのとでは生産性に大きな違いが出るであろうことは本書の序章だけからも痛感出来た。正答を出せる力はあるのに生産性に結びつかない様子などは本書の思想を逆説的に体現している結果とも言えるだろう。また、イシュー指向とは別の観点ではあるものの、仲間や組織をリソースとして惜しみなく活用するというスタンスもポイントに映った。科学にしろ事業にしろ、熱意を注ぐべきイシューを分析手が見極めるのをサポートするのが相対的ベテランの務めだろう。<br>
+　とは言え、頭では理解出来ても実践を徹底するのは容易くない。特に目前の仕事に追われてくると、踏み込んだ仮説を立てることなく「やってみないと分からない」分析に逃げたり、仮説を立てるための1次情報に触れるのに出遅れたりしがちだ。そうしたとき、本書は自分の仕事ぶりを見直す機会を与えてくれる。改めてイシュー指向で問題の見極めから取り掛かる勇気を与えてくれる。特にイシュー指向が習慣付くまでは、本書の序章〜第1章は手元に置いて繰り返し読む価値がある。<br>
+　一方で、本書も述べてある通りバリューある仕事のためには一度イシューを見極めたら分析はテンポ良く進めなければならないし、イシューの見極めだけに尽力して実際に解を出す作業を蔑ろにすることがあってはならない。イシューの見極めのために議論は尽くすべきだけれど、それを手を動かし始められないイクスキューズとして濫用しないように気を付けよう！<br>
+<br>
+【補足】<br>
+　書評は以上であり以下は自身のための記録です。<br>
+良いイシューの3条件：<br>
+1. 『本質的な選択肢である』：『それに答えが出るとそこから先の検討方向性に大きく影響を与えるもの』である。<br>
+2. 『深い仮説がある』：『常識を覆すような洞察』や『新しい構造』を含む。<br>
+3. 『答えを出せる』：『きっちりと答えを出せる』、特に『自分の手法ならば答えを出せる』ものである。<br>
+言語化するときのポイント：<br>
+・『「WHY」より「WHERE」「WHAT」「HOW」』<br>
+・『比較表現を入れる』<br>
+優れたチャートの3条件：<br>
+1. 『イシューに沿ったメッセージがある』<br>
+2. 『（サポート部分の）タテとヨコの広がりに意味がある』<br>
+3. 『サポートがメッセージを支えている』<br>
+</details><br>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">趣味</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">旅の絵本（中部ヨーロッパ編）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<a href="https://hb.afl.rakuten.co.jp/ichiba/30299f29.4538d6a1.30299f2a.2d3c4ea1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F121022%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/30299f29.4538d6a1.30299f2a.2d3c4ea1/?me_id=1213310&item_id=10084914&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F5394%2F9784834005394.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+
+<div>
+著 安野光雅、1977。<br>
+<details>
+  <summary>詳細</summary>
+　安野光雅さんについてはいずれ独立した記事を投稿したいと思っています。
+</details><br>
+</div>
+<!-- /wp:html -->
