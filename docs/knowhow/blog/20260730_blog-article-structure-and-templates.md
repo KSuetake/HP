@@ -1,6 +1,6 @@
 # ブログ記事の構成・書き方の型（テンプレート）
 
-- **参照URL**: <https://www.xserver.ne.jp/blog/blog-template/>
+- **参照記事**: [【もう迷わない】ブログ記事の構成・書き方の型（テンプレート）を徹底解説！](https://www.xserver.ne.jp/blog/blog-template/)
 - **取得日**: 2026-07-30
 - **カテゴリ**: blog
 - **タグ**: #blog #writing #template #prep #structure #seo
@@ -110,7 +110,4 @@
 
 ## 📝 補足・関連情報 (Notes & Resources)
 
-- **関連ドキュメント**:
-  - [ブログタイトルの決定手順](docs/knowhow/blog/20260730_blog-title-creation-steps.md)
-  - [ブログタイトルの型・テンプレート](docs/knowhow/blog/20260730_blog-title-templates.md)
-  - [ブログ執筆の基本・ポイント](docs/knowhow/blog/20260730_blog-writing-essentials.md)
+- 特にありません。

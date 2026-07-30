@@ -1,6 +1,6 @@
 # ブログ記事の推敲方法と文章改善のコツ
 
-- **参照URL**: <https://www.xserver.ne.jp/blog/blog-refine-article/>
+- **参照記事**: [ブログ記事のリライト方法とは？手順や注意点・成功のコツを解説](https://www.xserver.ne.jp/blog/blog-refine-article/)
 - **取得日**: 2026-07-30
 - **カテゴリ**: blog
 - **タグ**: #blog #writing #refinement #editing #proofreading #seo #copywriting

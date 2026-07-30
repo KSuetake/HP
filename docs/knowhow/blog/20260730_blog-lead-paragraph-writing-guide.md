@@ -1,6 +1,6 @@
 # 【例文あり】ブログのリード文の書き方や構成要素を徹底解説
 
-- **参照URL**: <https://www.xserver.ne.jp/blog/blog-lead-paragraph/>
+- **参照記事**: [【例文あり】ブログのリード文（導入文）の書き方や構成要素を徹底解説！](https://www.xserver.ne.jp/blog/blog-lead-paragraph/)
 - **取得日**: 2026-07-30
 - **カテゴリ**: blog
 - **タグ**: #ブログ #ライティング #リード文 #導入文 #文章術 #SEO

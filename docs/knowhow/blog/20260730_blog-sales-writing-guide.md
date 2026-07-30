@@ -1,6 +1,6 @@
 # セールスライティングとは？売れる記事作成のコツと6つの文章の型
 
-- **参照URL**: <https://www.xserver.ne.jp/blog/sales-writing/>
+- **参照記事**: [【文章術】セールスライティングとは？書き方の型やコツを徹底解説！](https://www.xserver.ne.jp/blog/sales-writing/)
 - **取得日**: 2026-07-30
 - **カテゴリ**: marketing
 - **タグ**: #セールスライティング #コピーライティング #Webマーケティング #コンバージョン改善 #ライティング型 #PASONA #PREP

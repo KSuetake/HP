@@ -1,6 +1,6 @@
 # 【個人ブロガー必須】ロングテールキーワードの基礎知識と選び方ガイド
 
-- **参照URL**: <https://www.xserver.ne.jp/blog/long-tail-keyword/>
+- **参照記事**: [【SEO対策】ロングテールキーワードとは？メリットや選び方を解説](https://www.xserver.ne.jp/blog/long-tail-keyword/)
 - **取得日**: 2026-07-30
 - **カテゴリ**: marketing
 - **タグ**: #SEO #ブログ #ロングテールキーワード #キーワード選定 #コンテンツマーケティング

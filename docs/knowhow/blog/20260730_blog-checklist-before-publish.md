@@ -1,6 +1,6 @@
 # ブログ記事公開前のチェックリスト！記事の質を上げる25の項目とチェックのコツ
 
-- **参照URL**: <https://www.xserver.ne.jp/blog/blog-checklist-before-publish/>
+- **参照記事**: [【チェックリスト付】ブログ記事を公開する前に確認したい15のチェックポイント](https://www.xserver.ne.jp/blog/blog-checklist-before-publish/)
 - **取得日**: 2026-07-30
 - **カテゴリ**: blog
 - **タグ**: #ブログ運営 #記事執筆 #校正 #チェックリスト #SEO #Webライティング #読者ファースト
