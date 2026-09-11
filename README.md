@@ -57,12 +57,17 @@
 ### リポジトリ構成
 ```
 .
-├── articles/            # 記事原稿・下書き・アイデア等の管理
+├── articles/                     # 記事原稿・アセットの管理（記事単位ディレクトリ）
+│   ├── <記事スラッグ>/
+│   │   ├── article.md            # 記事本文
+│   │   └── images/               # 記事固有の画像アセット（アイキャッチ・図解等）
+│   ├── shopping-guide/           # お買いものシステム構築ガイド
+│   └── youtube-curation-guide/   # YouTube超タイパ術
 ├── docs/
-│   └── knowhow/blog/    # ブログ執筆・SEO・構成等のノウハウ（ドキュメント集）
+│   └── knowhow/blog/             # ブログ執筆・SEO・構成等のノウハウ（ドキュメント集）
 └── .agents/
     └── skills/
-        └── blog-assistant/ # ブログ記事の企画・執筆・推敲を支援するAIスキル
+        └── blog-assistant/       # ブログ記事の企画・執筆・推敲を支援するAIスキル
 ```
 
 ### 記事作成の流れ
