@@ -115,8 +115,8 @@ async function wpRequest(endpoint, options = {}) {
   } catch (err) {
     if (err.cause && err.cause.code === 'ENOTFOUND') {
       console.error(`❌ エラー: ホスト名に接続できませんでした (${WP_SITE_URL})`);
-    } else if (!err.message.includes('WordPress API returned')) {
-      console.error(`❌ リクエスト送信エラー:`, err.message);
+    } else {
+      console.error(`❌ リクエスト送信エラー:`, err);
     }
     throw err;
   }
@@ -192,7 +192,8 @@ async function runTest() {
 
   // ユーザー情報の取得（疎通確認）
   const user = await wpRequest('users/me');
-  console.log(`✅ 認証成功！ ログインユーザー: ${user.name} (ID: ${user.id}, Roles: ${user.roles.join(', ')})`);
+  const roles = Array.isArray(user.roles) ? user.roles.join(', ') : '(非公開/標準権限)';
+  console.log(`✅ 認証成功！ ログインユーザー: ${user.name} (ID: ${user.id}, Roles: ${roles})`);
 
   console.log('\n📝 [2/2] テスト用下書き記事を作成中 (status: draft)...');
   const testTitle = `[Test Draft] 疎通確認テスト - ${new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}`;
@@ -381,7 +382,7 @@ STK Lab - WordPress REST API 疎通・ドラフト投稿CLI
       process.exit(1);
     }
   } catch (err) {
-    console.error('\n⚠️ 処理が失敗しました。');
+    console.error('\n⚠️ 処理が失敗しました。詳細:', err);
     process.exit(1);
   }
 }

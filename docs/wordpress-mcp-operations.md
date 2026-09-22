@@ -74,8 +74,30 @@ WP_USERNAME=<your_wordpress_username>
 WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
 ```
 
-### Step 4: MCP クライアント（Claude / Antigravity 等）の設定例
-AI アシスタントから MCP 経由で WordPress を操作する場合、MCP 設定ファイル（例: `mcp_config.json`）に以下のように登録する：
+### Step 4: MCP クライアント（Claude / Antigravity / Cursor 等）の設定例
+AI アシスタントから MCP 経由で WordPress を自然言語操作する場合、環境に合わせて以下の設定を行います。
+
+#### 【推奨・プラグイン不要】リポジトリ同梱のローカル MCP サーバー (`scripts/wp-mcp-server.js`)
+WordPress側に一切追加プラグインをインストールすることなく、標準の REST API を直接利用して動作します。
+
+```json
+{
+  "mcpServers": {
+    "stk-lab-wordpress": {
+      "command": "node",
+      "args": ["<project_root>/scripts/wp-mcp-server.js"],
+      "env": {
+        "WP_SITE_URL": "https://stk-lab.org",
+        "WP_USERNAME": "<your_wordpress_username>",
+        "WP_APP_PASSWORD": "<your_application_password>"
+      }
+    }
+  }
+}
+```
+
+#### 【参考】Automattic 公式 MCP サーバーを利用する場合
+WordPress側に「[MCP Adapter](https://github.com/WordPress/mcp-adapter)」プラグインがインストール・有効化されている必要があります。
 
 ```json
 {
@@ -84,9 +106,10 @@ AI アシスタントから MCP 経由で WordPress を操作する場合、MCP 
       "command": "npx",
       "args": ["-y", "@automattic/mcp-wordpress-remote"],
       "env": {
-        "WP_API_URL": "https://stk-lab.org/wp-json",
+        "WP_API_URL": "https://stk-lab.org/wp-json/mcp/mcp-adapter-default-server",
         "WP_API_USERNAME": "<your_wordpress_username>",
-        "WP_API_PASSWORD": "<your_application_password>"
+        "WP_API_PASSWORD": "<your_application_password>",
+        "OAUTH_ENABLED": "false"
       }
     }
   }
@@ -179,6 +202,13 @@ node scripts/wp-draft-post.js upload-media articles/shopping-guide/images/eyecat
   * 指定した画像を WordPress メディアライブラリへ直接アップロードする。
   * アップロードされたメディアの「ID」および「URL」を出力する。
   * 記事のアイキャッチ画像として設定する際にこの ID を利用する。
+
+### 4. WordPress MCP サーバーの動作検証
+```bash
+node scripts/test-mcp-server.js
+```
+* **動作**:
+  * `scripts/wp-mcp-server.js` をバックグラウンドで起動し、MCP プロトコル（JSON-RPC 2.0）経由で `initialize`、`tools/list`、`tools/call`（接続テスト・下書き作成）を自動実行して正常性を確認します。
 
 ---
 
