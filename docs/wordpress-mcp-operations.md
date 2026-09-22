@@ -78,7 +78,7 @@ WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
 公式 MCP サーバーを利用するためには、WordPress サイト側に公式プラグイン「[WordPress/mcp-adapter](https://github.com/WordPress/mcp-adapter)」をインストール・有効化する必要があります。
 
 1. **プラグイン ZIP の入手**:
-   - リポジトリ内の `scripts/mcp/mcp-adapter.zip` を使用するか、[GitHub Releases 最新版](https://github.com/WordPress/mcp-adapter/releases/latest) より `mcp-adapter.zip` をダウンロードします。
+   - [WordPress/mcp-adapter GitHub Releases](https://github.com/WordPress/mcp-adapter/releases/latest) より最新の `mcp-adapter.zip` をダウンロードします。
 2. **WordPress 管理画面からアップロード・有効化**:
    - WordPress 管理画面にログインし、左メニュー「**プラグイン**」 > 「**新規プラグインを追加**」を開く。
    - 画面上部の「**プラグインのアップロード**」ボタンをクリック。
@@ -196,13 +196,6 @@ node scripts/wp-draft-post.js upload-media articles/shopping-guide/images/eyecat
   * 指定した画像を WordPress メディアライブラリへ直接アップロードする。
   * アップロードされたメディアの「ID」および「URL」を出力する。
   * 記事のアイキャッチ画像として設定する際にこの ID を利用する。
-
-### 4. WordPress 公式 MCP サーバーの動作検証
-```bash
-node scripts/test-official-mcp.js
-```
-* **動作**:
-  * 公式パッケージ `@automattic/mcp-wordpress-remote` を起動し、WordPress 側の公式プラグイン（`WordPress/mcp-adapter`）との MCP プロトコル（JSON-RPC 2.0）ハンドシェイクおよびツール一覧取得を自動テストします。
 
 ---
 
