@@ -74,30 +74,21 @@ WP_USERNAME=<your_wordpress_username>
 WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
 ```
 
-### Step 4: MCP クライアント（Claude / Antigravity / Cursor 等）の設定例
-AI アシスタントから MCP 経由で WordPress を自然言語操作する場合、環境に合わせて以下の設定を行います。
+### Step 4: WordPress 公式プラグイン「WordPress MCP Adapter」のインストール・有効化
+公式 MCP サーバーを利用するためには、WordPress サイト側に公式プラグイン「[WordPress/mcp-adapter](https://github.com/WordPress/mcp-adapter)」をインストール・有効化する必要があります。
 
-#### 【推奨・プラグイン不要】リポジトリ同梱のローカル MCP サーバー (`scripts/wp-mcp-server.js`)
-WordPress側に一切追加プラグインをインストールすることなく、標準の REST API を直接利用して動作します。
+1. **プラグイン ZIP の入手**:
+   - リポジトリ内の `scripts/mcp/mcp-adapter.zip` を使用するか、[GitHub Releases 最新版](https://github.com/WordPress/mcp-adapter/releases/latest) より `mcp-adapter.zip` をダウンロードします。
+2. **WordPress 管理画面からアップロード・有効化**:
+   - WordPress 管理画面にログインし、左メニュー「**プラグイン**」 > 「**新規プラグインを追加**」を開く。
+   - 画面上部の「**プラグインのアップロード**」ボタンをクリック。
+   - ダウンロードした `mcp-adapter.zip` を選択し、「**今すぐインストール**」をクリック。
+   - インストール完了後、「**プラグインを有効化**」をクリック。
+3. **エンドポイントの確認**:
+   - プラグインが有効化されると、自動的に `/wp-json/mcp/mcp-adapter-default-server` エンドポイントが公開され、AI アシスタントからの MCP 接続が可能になります。
 
-```json
-{
-  "mcpServers": {
-    "stk-lab-wordpress": {
-      "command": "node",
-      "args": ["<project_root>/scripts/wp-mcp-server.js"],
-      "env": {
-        "WP_SITE_URL": "https://stk-lab.org",
-        "WP_USERNAME": "<your_wordpress_username>",
-        "WP_APP_PASSWORD": "<your_application_password>"
-      }
-    }
-  }
-}
-```
-
-#### 【参考】Automattic 公式 MCP サーバーを利用する場合
-WordPress側に「[MCP Adapter](https://github.com/WordPress/mcp-adapter)」プラグインがインストール・有効化されている必要があります。
+### Step 5: MCP クライアント（Claude / Antigravity / Cursor 等）の公式 MCP 設定
+AI アシスタント（Claude Desktop、Antigravity、Cursor 等）の設定ファイル（例: `claude_desktop_config.json` や `mcp_config.json`）に以下を登録します。
 
 ```json
 {
@@ -115,6 +106,9 @@ WordPress側に「[MCP Adapter](https://github.com/WordPress/mcp-adapter)」プ�
   }
 }
 ```
+
+> [!NOTE]
+> Windows 環境で `npx` コマンドが PowerShell 実行ポリシーによりブロックされる場合は、`"command": "npx.cmd"` と指定してください。
 
 ---
 
@@ -203,12 +197,12 @@ node scripts/wp-draft-post.js upload-media articles/shopping-guide/images/eyecat
   * アップロードされたメディアの「ID」および「URL」を出力する。
   * 記事のアイキャッチ画像として設定する際にこの ID を利用する。
 
-### 4. WordPress MCP サーバーの動作検証
+### 4. WordPress 公式 MCP サーバーの動作検証
 ```bash
-node scripts/test-mcp-server.js
+node scripts/test-official-mcp.js
 ```
 * **動作**:
-  * `scripts/wp-mcp-server.js` をバックグラウンドで起動し、MCP プロトコル（JSON-RPC 2.0）経由で `initialize`、`tools/list`、`tools/call`（接続テスト・下書き作成）を自動実行して正常性を確認します。
+  * 公式パッケージ `@automattic/mcp-wordpress-remote` を起動し、WordPress 側の公式プラグイン（`WordPress/mcp-adapter`）との MCP プロトコル（JSON-RPC 2.0）ハンドシェイクおよびツール一覧取得を自動テストします。
 
 ---
 
