@@ -71,7 +71,8 @@ const env = {
 const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 const child = spawn(npxCmd, ['-y', '@automattic/mcp-wordpress-remote'], {
   env,
-  stdio: ['pipe', 'pipe', 'inherit']
+  stdio: ['pipe', 'pipe', 'inherit'],
+  shell: true
 });
 
 let buffer = '';
@@ -105,14 +106,37 @@ function handleMessage(msg) {
     send({ jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} });
   } else if (msg.id === 2 && msg.result) {
     const tools = msg.result.tools || [];
-    console.log(`\n🎉 [2/2] 公式 MCP ツール一覧の取得に成功しました！ (計 ${tools.length} 件)`);
+    console.log(`\n🎉 [2/3] 公式 MCP ツール一覧の取得に成功しました！ (計 ${tools.length} 件)`);
     tools.forEach(t => {
       console.log(`   - 🔧 ${t.name}: ${t.description ? t.description.slice(0, 80) : ''}`);
     });
-    console.log('\n✅ WordPress 公式 MCP サーバーが完全に稼働しています！');
-    cleanup(0);
-  } else if (msg.id === 2 && msg.error) {
-    console.error('❌ tools/list エラー:', msg.error);
+    console.log('\n🚀 [3/3] tools/call (mcp-adapter-discover-abilities) を実行中...');
+    send({
+      jsonrpc: '2.0',
+      id: 3,
+      method: 'tools/call',
+      params: { name: 'mcp-adapter-discover-abilities', arguments: {} }
+    });
+  } else if (msg.id === 3) {
+    if (msg.error) {
+      console.error('❌ tools/call エラー:', msg.error);
+      cleanup(1);
+    } else {
+      console.log('✅ [3/3] tools/call 成功！ 利用可能な WordPress Abilities:');
+      const content = msg.result?.content || [];
+      content.forEach(c => {
+        try {
+          const parsed = JSON.parse(c.text);
+          console.log(JSON.stringify(parsed, null, 2).slice(0, 800) + '...');
+        } catch (e) {
+          console.log(c.text.slice(0, 500));
+        }
+      });
+      console.log('\n🎉 WordPress 公式 MCP サーバーの全機能疎通テストが完了しました！');
+      cleanup(0);
+    }
+  } else if (msg.error) {
+    console.error('❌ エラー:', msg.error);
     cleanup(1);
   }
 }
