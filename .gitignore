@@ -23,3 +23,8 @@ Thumbs.db
 
 # Archives & Binaries
 *.zip
+
+# Local MCP Configs (Secrets protection)
+mcp_config.json
+*.mcp.json
+.mcp/
