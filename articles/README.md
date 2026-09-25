@@ -74,7 +74,7 @@ Phase 7: ユーザー承認に基づくPRマージ・クリーンアップ
 - **表現手段の適切な選択（脱・無理な図式化）**:
   - 何でもかんでもASCIIアート等の図式に頼らず、表（Markdownテーブル）や箇条書きなど、情報に応じた最適な表現を選択する。
 - **単一正本（最上位ライティング規範）の遵守**:
-  - 本文執筆にあたっては、単一正本（Single Source of Truth: SSOT）である **[最上位ライティング規範 (`docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md`)](../docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md)**（Universal Principles、Practical Standards 1〜10、および推敲チェックリスト）を厳格に適用する。
+  - 本文執筆にあたっては、単一正本（Single Source of Truth: SSOT）である **[最上位ライティング規範 (`docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md`)](../docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md)**（普遍的原則、実践プラクティス、およびセルフチェックリスト）を厳格に適用する。
 - **WordPress表現・画像指示の埋め込み**:
   - アイキャッチや図解の生成プロンプト、吹き出し、案内ボックス、キーボードキー装飾等を明記する。
 
@@ -102,7 +102,7 @@ Phase 7: ユーザー承認に基づくPRマージ・クリーンアップ
 本ガイドラインを実践するにあたり、以下のドキュメントを参照・遵守すること。
 
 - **[最上位ライティング規範 (`docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md`)](../docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md)** 【単一正本 (SSOT)】:
-  - STK Labにおける記事執筆・エディトリアル規約の**唯一の正本**。読者への伴走思想、3部品構成の根幹原則、Practical Standards 1〜10（箇条書き使い分け、安易なカウント抑制、語彙統一、等幅記号★☆、野暮なメタ説明排除、公式ツール紹介マナー等）、および推敲セルフチェックリストをすべてここに集約・管理する。
+  - STK Labにおける記事執筆・エディトリアル規約の**唯一の正本**。読者への伴走思想、普遍的原則（3部品構成、論理整合・語彙統一）、実践プラクティス（構造で語る、読者主体、平易な言葉、プレーン表記・視覚化、文脈接続）、および推敲セルフチェックリストをすべてここに集約・管理する。
 - **[ブログ制作支援スキル (`.agents/skills/blog-assistant/SKILL.md`)](../.agents/skills/blog-assistant/SKILL.md)**:
   - AIエージェントが自律的に実行する作業標準手順、WordPressドラフト運用ルール（下書き限定、即時公開禁止、正本規範の参照義務）。
 

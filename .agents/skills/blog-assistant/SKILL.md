@@ -57,8 +57,8 @@ description: ブログ記事の企画・キーワード選定、構成案作成�
    - AI アシスタントが自律的に即時公開（`publish`）を行うことは固く禁ずる。
    - 最終公開は必ず WordPress 管理画面上で目視プレビュー（Cocoon装飾、アイキャッチ、スマホ表示崩れ等）を確認後、人間が手動で実施する。
 7. **【単一正本】ライティング規範・エディトリアル規約の厳格な遵守**
-   - 記事の構成設計・本文執筆・推敲・校正にあたっては、単一正本（Single Source of Truth: SSOT）である **[最上位ライティング規範 (`docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md`)](../../../docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md)** を必ず参照し、そこに定められたUniversal Principles、Practical Standards 1〜10、およびセルフチェックリストを厳格に適用する。
-   - スキル定義側に個別の執筆ルールを重複定義せず、規約の改定・追記はすべて上記正本ファイルにて行う。
+   - 記事の構成設計・本文執筆・推敲・校正にあたっては、単一正本（Single Source of Truth: SSOT）である **[最上位ライティング規範 (`docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md`)](../../../docs/knowhow/blog/20260831_stk-writing-philosophy-and-core-principles.md)** を必ず参照し、そこに定められた普遍的原則・実践プラクティス・セルフチェックリストを厳格に適用する。
+   - スキル定義側に個別の執筆ルールを重複定義せず、規約の改定・集約はすべて上記正本ファイルにて行う。
 
 ## 進行手順（標準7フェーズ）
 
