@@ -60,11 +60,14 @@
 ├── articles/                     # 記事原稿・アセットの管理（記事単位ディレクトリ）
 │   ├── <記事スラッグ>/
 │   │   ├── article.md            # 記事本文
+│   │   ├── design.md             # 記事設計書
 │   │   └── images/               # 記事固有の画像アセット（アイキャッチ・図解等）
 │   ├── shopping-guide/           # お買いものシステム構築ガイド
 │   └── youtube-curation-guide/   # YouTube超タイパ術
 ├── docs/
-│   └── knowhow/blog/             # ブログ執筆・SEO・構成等のノウハウ（ドキュメント集）
+│   ├── knowhow/blog/             # ブログ執筆・SEO・構成等のノウハウ（ドキュメント集）
+│   └── wordpress-mcp-operations.md # [WordPress MCP / REST API 運用ガイド](docs/wordpress-mcp-operations.md)（ドラフト運用・機能マトリクス）
+├── scripts/                      # WordPress REST API 疎通・ドラフト投稿CLIスクリプト
 └── .agents/
     └── skills/
         └── blog-assistant/       # ブログ記事の企画・執筆・推敲を支援するAIスキル
@@ -74,8 +77,10 @@
 1. **企画・構想**: コンセプト（「知恵と技術で余裕を取り戻す」）に沿ったテーマ・キーワード選定
 2. **ノウハウ参照**: `docs/knowhow/blog/` 配下のノウハウや `blog-assistant` スキルを活用して構成案・骨子を作成
 3. **執筆・推敲**: 可読性や説得力を意識した本文の執筆
-4. **事前チェック**: 公開前チェックリストに基づき、メタ情報・見出し・リンク等を最終確認
-5. **公開・蓄積**: サイトへの公開と、得られた知見の `docs/knowhow/` へのフィードバック
+4. **事前チェック & 独立二重監査**: 公開前チェックリストに基づき、メタ情報・見出し・リンク等を最終確認
+5. **WordPress 下書き（Draft）登録**: `scripts/wp-draft-post.js` または MCP を介して安全にドラフト登録（※誤公開を防ぐためAPI経由では常に `status: draft` を強制、詳細は [WordPress運用ガイド](docs/wordpress-mcp-operations.md) 参照）
+6. **目視プレビュー確認 & 手動公開**: WordPress 管理画面上でデザイン・装飾を確認後、手動で公開
+7. **蓄積・フィードバック**: 得られた知見を `docs/knowhow/` やリポジトリへ記録・蓄積
 
 ---
 
