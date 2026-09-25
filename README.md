@@ -57,7 +57,13 @@
 ### リポジトリ構成
 ```
 .
-├── articles/                     # 記事原稿・アセットの管理
+├── articles/                     # 記事原稿・アセットの管理（記事単位ディレクトリ）
+│   ├── <記事スラッグ>/
+│   │   ├── article.md            # 記事本文
+│   │   ├── design.md             # 記事設計書
+│   │   └── images/               # 記事固有の画像アセット（アイキャッチ・図解等）
+│   ├── shopping-guide/           # お買いものシステム構築ガイド
+│   └── youtube-curation-guide/   # YouTube超タイパ術
 ├── docs/
 │   ├── knowhow/blog/             # ブログ執筆・SEO・構成等のノウハウ（ドキュメント集）
 │   └── wordpress-mcp-operations.md # [WordPress MCP / REST API 運用ガイド](docs/wordpress-mcp-operations.md)（ドラフト運用・機能マトリクス）
