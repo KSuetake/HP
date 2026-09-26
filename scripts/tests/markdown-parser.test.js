@@ -74,10 +74,10 @@ const tableInput = `
 `.trim();
 
 const tableOutput = simpleMarkdownToHtml(tableInput);
-assert(tableOutput.includes('<div class="scrollable-table">'), 'Cocoon横スクロールラッパーが含まれること');
-assert(tableOutput.includes('<table class="wp-block-table is-style-stripes">'), 'Gutenbergテーブルクラスが含まれること');
-assert(tableOutput.includes('<th>ツール名</th>'), 'ヘッダーthが含まれること');
-assert(tableOutput.includes('<td>Keepa</td>'), 'セルtdが含まれること');
+assert(tableOutput.includes('class="scrollable-table responsive-table-wrapper"'), 'Cocoon横スクロールラッパーが含まれること');
+assert(tableOutput.includes('<table class="wp-block-table is-style-stripes"'), 'Gutenbergテーブルクラスが含まれること');
+assert(tableOutput.includes('>ツール名</th>'), 'ヘッダーthが含まれること');
+assert(tableOutput.includes('>Keepa</td>'), 'セルtdが含まれること');
 console.log('  ✅ 通過: Markdown テーブル\n');
 
 // 5. コードブロック保護テスト
@@ -157,4 +157,77 @@ assert(!tableMultiLinkOutput.includes('target="<em>blank'), 'テーブル内のt
 assert(tableMultiLinkOutput.includes('</table>'), 'テーブルが正しく閉じられていること');
 console.log('  ✅ 通過: テーブル内複数リンク保護\n');
 
-console.log('🎉 すべての単体テストに合格しました！');
+// 11. インデント付き・ネストリストの変換テスト
+console.log('Test 11: インデント付き・ネストリストの変換');
+const nestedListInput = `
+1. まず課題をメモする
+2. アイテムを検索・比較する
+   * **AIへの相談も有効**: 自然な言葉で質問する
+* 親項目
+  * 子項目A
+  * 子項目B
+`.trim();
+const nestedListOutput = simpleMarkdownToHtml(nestedListInput);
+assert(nestedListOutput.includes('<ol><li>まず課題をメモする</li><li>アイテムを検索・比較する<ul><li><strong>AIへの相談も有効</strong>: 自然な言葉で質問する</li></ul></li></ol>'), '番号付きリスト配下のインデントリストが正しくネストされること');
+assert(nestedListOutput.includes('<ul><li>親項目<ul><li>子項目A</li><li>子項目B</li></ul></li></ul>'), '箇条書き配下のインデントリストが正しくネストされること');
+assert(!nestedListOutput.includes('* **AIへの相談も有効**'), '未変換のアスタリスクが残らないこと');
+console.log('  ✅ 通過: インデント付き・ネストリスト\n');
+
+// 12. GFM Alerts 内での空行なし箇条書きの分離テスト
+console.log('Test 12: GFM Alerts 内での空行なし箇条書きの分離');
+const alertListInput = `
+> [!WARNING]
+> **粗悪品・サクラレビューを見切る3つのフィルター**
+>
+> ネットショッピングで失敗しないための簡単なフィルターです。
+> * **評価の分布をチェック**: 星5と星1を注意
+> * **相場を見切る**: 半額以下は危険
+`.trim();
+const alertListOutput = simpleMarkdownToHtml(alertListInput);
+assert(alertListOutput.includes('<p>ネットショッピングで失敗しないための簡単なフィルターです。</p>'), '説明文が独立した段落として変換されること');
+assert(alertListOutput.includes('<ul><li><strong>評価の分布をチェック</strong>: 星5と星1を注意</li><li><strong>相場を見切る</strong>: 半額以下は危険</li></ul>'), '箇条書きが独立したリストタグとして変換されること');
+assert(!alertListOutput.includes('* **評価の分布をチェック**'), 'アスタリスクがテキストとして剥き出しにならないこと');
+console.log('  ✅ 通過: GFM Alerts 内の箇条書き分離\n');
+
+// 13. 見出し直後に空行がない段落の太字パーステスト
+console.log('Test 13: 見出し直後に空行がない段落の太字パース');
+const headingTightInput = `
+### 1. なぜ「おすすめ（ホーム画面）」を見てはいけないのか
+YouTubeのホーム画面は**「あなたを長く引き止めるため」**に最適化されています。
+`.trim();
+const headingTightOutput = simpleMarkdownToHtml(headingTightInput);
+assert(headingTightOutput.includes('<h3>1. なぜ「おすすめ（ホーム画面）」を見てはいけないのか</h3>'), '見出しが正しく変換されること');
+assert(headingTightOutput.includes('<strong>「あなたを長く引き止めるため」</strong>'), '見出し直後の太字が確実に変換されること');
+assert(headingTightOutput.includes('<p>YouTubeのホーム画面は'), '見出し直後の文章がpタグで囲まれること');
+console.log('  ✅ 通過: 見出し直後の太字パース\n');
+
+// 14. 吹き出しの洗練化（SVGアバターと構造）テスト
+console.log('Test 14: 吹き出しのSVGアバターと構造');
+const balloonInput = `
+::: balloon reader
+質問があります。
+:::
+::: balloon author
+お答えします！
+:::
+`.trim();
+const balloonOutput = simpleMarkdownToHtml(balloonInput);
+assert(balloonOutput.includes('<figure class="speech-icon"><img src="data:image/svg+xml;utf8,'), '吹き出しにSVGアバター画像が含まれること');
+assert(balloonOutput.includes('alt="読者"'), '読者のaltテキストが含まれること');
+assert(balloonOutput.includes('alt="筆者"'), '筆者のaltテキストが含まれること');
+assert(balloonOutput.includes('class="speech-icon-image"'), 'Cocoonのアイコンクラスが付与されること');
+console.log('  ✅ 通過: 吹き出しSVGアバター\n');
+
+// 15. テーブルのレスポンシブスタイル付与テスト
+console.log('Test 15: テーブルのレスポンシブスタイル');
+const tableStyleInput = `
+| A | B |
+| --- | --- |
+| 1 | 2 |
+`.trim();
+const tableStyleOutput = simpleMarkdownToHtml(tableStyleInput);
+assert(tableStyleOutput.includes('style="width: 100%; border-collapse: collapse; table-layout: auto; word-break: break-word;"'), 'テーブルにPC全幅表示用スタイルが含まれること');
+assert(tableStyleOutput.includes('style="padding: 10px 14px; vertical-align: top;"'), 'セルに適切なパディングスタイルが含まれること');
+console.log('  ✅ 通過: テーブルレスポンシブスタイル\n');
+
+console.log('🎉 すべての単体テスト（全15件）に合格しました！');

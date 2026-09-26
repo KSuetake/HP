@@ -156,20 +156,77 @@ function parseInline(text) {
   return res;
 }
 
+// 読者アバター（親しみやすいサックスブルーのシルエット＋?バッジ）
+const READER_AVATAR_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="60" height="60"><circle cx="32" cy="32" r="32" fill="#E2E8F0"/><circle cx="32" cy="24" r="11" fill="#64748B"/><path d="M14 54c0-9.9 8.1-18 18-18s18 8.1 18 18" fill="#64748B"/><circle cx="48" cy="18" r="8" fill="#3B82F6"/><text x="48" y="23" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">?</text></svg>`;
+
+// 筆者アバター（知性的で信頼感のあるエメラルドグリーンのシルエット＋!バッジ）
+const AUTHOR_AVATAR_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="60" height="60"><circle cx="32" cy="32" r="32" fill="#CCFBF1"/><circle cx="32" cy="24" r="11" fill="#0D9488"/><path d="M14 54c0-9.9 8.1-18 18-18s18 8.1 18 18" fill="#0D9488"/><circle cx="48" cy="18" r="8" fill="#10B981"/><text x="48" y="23" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">!</text></svg>`;
+
+const READER_AVATAR_URI = 'data:image/svg+xml;utf8,' + encodeURIComponent(READER_AVATAR_SVG);
+const AUTHOR_AVATAR_URI = 'data:image/svg+xml;utf8,' + encodeURIComponent(AUTHOR_AVATAR_SVG);
+
 /**
- * リスト（箇条書き・番号付きリスト）の変換
+ * リスト（箇条書き・番号付きリスト）の階層対応変換
  */
 function parseLists(text) {
-  const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
-  const isOrdered = /^\d+\.\s/.test(lines[0].trim());
-  const tag = isOrdered ? 'ol' : 'ul';
+  const rawLines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
+  if (rawLines.length === 0) return '';
 
-  const items = lines.map(line => {
-    const content = line.trim().replace(/^(?:[-*]|\d+\.)\s+/, '');
-    return `<li>${parseInline(content)}</li>`;
-  }).join('');
+  const parsedLines = [];
+  for (const line of rawLines) {
+    const indentMatch = line.match(/^([ \t]*)(?:([-*])|(\d+)\.)\s+(.+)$/);
+    if (indentMatch) {
+      const indent = indentMatch[1].replace(/\t/g, '  ').length;
+      const isOrdered = !!indentMatch[3];
+      const content = indentMatch[4];
+      parsedLines.push({ indent, isOrdered, content });
+    } else {
+      if (parsedLines.length > 0) {
+        parsedLines[parsedLines.length - 1].content += ' ' + line.trim();
+      }
+    }
+  }
 
-  return `<${tag}>${items}</${tag}>`;
+  if (parsedLines.length === 0) return text;
+
+  let html = '';
+  const stack = []; // [{ tag: 'ul'|'ol', indent: number }]
+
+  for (let i = 0; i < parsedLines.length; i++) {
+    const item = parsedLines[i];
+    const currentTag = item.isOrdered ? 'ol' : 'ul';
+
+    if (stack.length === 0) {
+      stack.push({ tag: currentTag, indent: item.indent });
+      html += `<${currentTag}><li>${parseInline(item.content)}`;
+    } else {
+      let top = stack[stack.length - 1];
+      if (item.indent > top.indent) {
+        stack.push({ tag: currentTag, indent: item.indent });
+        html += `<${currentTag}><li>${parseInline(item.content)}`;
+      } else {
+        html += `</li>`;
+        while (stack.length > 1 && stack[stack.length - 1].indent > item.indent) {
+          const popped = stack.pop();
+          html += `</${popped.tag}></li>`;
+        }
+        top = stack[stack.length - 1];
+        if (top.tag !== currentTag && item.indent === top.indent) {
+          const popped = stack.pop();
+          html += `</${popped.tag}><${currentTag}>`;
+          stack.push({ tag: currentTag, indent: item.indent });
+        }
+        html += `<li>${parseInline(item.content)}`;
+      }
+    }
+  }
+
+  while (stack.length > 0) {
+    const popped = stack.pop();
+    html += `</li></${popped.tag}>`;
+  }
+
+  return html;
 }
 
 /**
@@ -206,16 +263,19 @@ function simpleMarkdownToHtml(markdown) {
 
       let name = role;
       let posClass = side === 'right' ? 'sbp-r' : 'sbp-l';
+      let avatarUri = READER_AVATAR_URI;
       if (role === 'reader' || role === 'user') {
         name = '読者';
         posClass = 'sbp-l';
+        avatarUri = READER_AVATAR_URI;
       } else if (role === 'author' || role === 'admin') {
         name = '筆者';
         posClass = side === 'left' ? 'sbp-l' : 'sbp-r';
+        avatarUri = AUTHOR_AVATAR_URI;
       }
 
       const innerHtml = cleanContent.split(/\r?\n/).filter(l => l.trim()).map(line => `<p>${parseInline(line.trim())}</p>`).join('');
-      return `\n\n<div class="speech-wrap sb-id-1 sbs-stn ${posClass}"><div class="speech-person"><div class="speech-name">${name}</div></div><div class="speech-balloon">${innerHtml}</div></div>\n\n`;
+      return `\n\n<div class="speech-wrap sb-id-1 sbs-stn ${posClass}"><div class="speech-person"><figure class="speech-icon"><img src="${avatarUri}" alt="${name}" class="speech-icon-image" width="60" height="60"></figure><div class="speech-name">${name}</div></div><div class="speech-balloon">${innerHtml}</div></div>\n\n`;
     }
 
     // ② ボタン ::: btn [url] または ::: btn-primary [url]
@@ -281,12 +341,18 @@ function simpleMarkdownToHtml(markdown) {
       }
     }
 
-    const innerContent = contentLines.join('\n').trim();
-    const paragraphs = innerContent.split(/\n\s*\n/).map(block => {
+    // Alert内部のコンテンツのパース（リストと段落の分離）
+    let innerText = contentLines.join('\n').trim();
+    // リスト部分を先に変換
+    innerText = innerText.replace(/(?:^[ \t]*(?:[-*]|\d+\.)\s+.+(?:\r?\n|$)(?:^[ \t]+.+(?:\r?\n|$))*)+/gm, (m) => {
+      return `\n\n${parseLists(m.trim())}\n\n`;
+    });
+    // 段落分割
+    const paragraphs = innerText.split(/\n\s*\n/).map(block => {
       const trimmed = block.trim();
       if (!trimmed) return '';
-      if (trimmed.startsWith('* ') || trimmed.startsWith('- ') || /^\d+\.\s/.test(trimmed)) {
-        return parseLists(trimmed);
+      if (trimmed.startsWith('<ul') || trimmed.startsWith('<ol') || trimmed.startsWith('<blockquote') || trimmed.startsWith('<div')) {
+        return trimmed;
       }
       return `<p>${parseInline(trimmed.replace(/\n/g, '<br>'))}</p>`;
     }).filter(Boolean).join('');
@@ -294,7 +360,7 @@ function simpleMarkdownToHtml(markdown) {
     return `\n\n<div class="sp-box ${config.cssClass}"><div class="box-title"><strong>${parseInline(title)}</strong></div><div class="box-content">${paragraphs}</div></div>\n\n`;
   });
 
-  // 6. テーブル（Markdown Tables）の変換
+  // 6. テーブル（Markdown Tables）の変換（レスポンシブ・PC全幅表示）
   text = text.replace(/(?:(?:^|\n)\|[^\n]+\|\r?\n\|[-:| ]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g, (match) => {
     const rows = match.trim().split(/\r?\n/).map(r => r.trim()).filter(Boolean);
     if (rows.length < 2) return match;
@@ -302,28 +368,28 @@ function simpleMarkdownToHtml(markdown) {
     const parseRow = (row, isTh = false) => {
       const cells = row.split('|').slice(1, -1).map(c => c.trim());
       const tag = isTh ? 'th' : 'td';
-      return '<tr>' + cells.map(c => `<${tag}>${parseInline(c)}</${tag}>`).join('') + '</tr>';
+      return '<tr>' + cells.map(c => `<${tag} style="padding: 10px 14px; vertical-align: top;">${parseInline(c)}</${tag}>`).join('') + '</tr>';
     };
 
     const header = parseRow(rows[0], true);
     const bodyRows = rows.slice(2).map(r => parseRow(r, false)).join('');
 
-    return `\n\n<div class="scrollable-table"><table class="wp-block-table is-style-stripes"><thead>${header}</thead><tbody>${bodyRows}</tbody></table></div>\n\n`;
+    return `\n\n<div class="scrollable-table responsive-table-wrapper" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.8em 0;"><table class="wp-block-table is-style-stripes" style="width: 100%; border-collapse: collapse; table-layout: auto; word-break: break-word;"><thead>${header}</thead><tbody>${bodyRows}</tbody></table></div>\n\n`;
   });
 
-  // 7. 見出し
-  text = text.replace(/^######\s+(.+)$/gm, (m, p1) => `<h6>${parseInline(p1)}</h6>`);
-  text = text.replace(/^#####\s+(.+)$/gm, (m, p1) => `<h5>${parseInline(p1)}</h5>`);
-  text = text.replace(/^####\s+(.+)$/gm, (m, p1) => `<h4>${parseInline(p1)}</h4>`);
-  text = text.replace(/^###\s+(.+)$/gm, (m, p1) => `<h3>${parseInline(p1)}</h3>`);
-  text = text.replace(/^##\s+(.+)$/gm, (m, p1) => `<h2>${parseInline(p1)}</h2>`);
-  text = text.replace(/^#\s+(.+)$/gm, (m, p1) => `<h1>${parseInline(p1)}</h1>`);
+  // 7. 見出し（前後に空行を確保し、後続ブロックとの癒着を防止）
+  text = text.replace(/^######\s+(.+)$/gm, (m, p1) => `\n\n<h6>${parseInline(p1)}</h6>\n\n`);
+  text = text.replace(/^#####\s+(.+)$/gm, (m, p1) => `\n\n<h5>${parseInline(p1)}</h5>\n\n`);
+  text = text.replace(/^####\s+(.+)$/gm, (m, p1) => `\n\n<h4>${parseInline(p1)}</h4>\n\n`);
+  text = text.replace(/^###\s+(.+)$/gm, (m, p1) => `\n\n<h3>${parseInline(p1)}</h3>\n\n`);
+  text = text.replace(/^##\s+(.+)$/gm, (m, p1) => `\n\n<h2>${parseInline(p1)}</h2>\n\n`);
+  text = text.replace(/^#\s+(.+)$/gm, (m, p1) => `\n\n<h1>${parseInline(p1)}</h1>\n\n`);
 
   // 8. 水平線
-  text = text.replace(/^---$/gm, '<hr>');
+  text = text.replace(/^---$/gm, '\n\n<hr>\n\n');
 
   // 9. リスト（箇条書き・番号付きリスト）
-  text = text.replace(/(?:^(?:[-*]|\d+\.)\s+.+(?:\r?\n|$))+/gm, (match) => {
+  text = text.replace(/(?:^[ \t]*(?:[-*]|\d+\.)\s+.+(?:\r?\n|$)(?:^[ \t]+.+(?:\r?\n|$))*)+/gm, (match) => {
     return `\n\n${parseLists(match.trim())}\n\n`;
   });
 
