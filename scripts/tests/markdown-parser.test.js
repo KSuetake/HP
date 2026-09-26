@@ -135,4 +135,13 @@ assert(tableInlineOutput.includes('<strong>重要</strong>'), 'テーブルセ�
 assert(tableInlineOutput.includes('<a href="https://example.com" target="_blank" rel="noopener noreferrer">リンク</a>'), 'テーブルセル内にaタグが含まれること');
 console.log('  ✅ 通過: テーブル内インライン要素\n');
 
+// 9. 同一行内複数リンクの target="_blank" 属性破壊防止テスト
+console.log('Test 9: 複数リンクの target="_blank" 属性保護');
+const multiLinkInput = '[価格.com](https://kakaku.com/)、[マイベスト](https://my-best.com/)';
+const multiLinkOutput = parseInline(multiLinkInput);
+assert(multiLinkOutput.includes('target="_blank"'), 'target="_blank" が属性として保持されること');
+assert(!multiLinkOutput.includes('target="<em>blank'), 'target="_blank" のアンダースコアが斜体に誤変換されないこと');
+assert(!multiLinkOutput.includes('</em>blank"'), '斜体閉じタグが属性値に混入しないこと');
+console.log('  ✅ 通過: 複数リンク属性保護\n');
+
 console.log('🎉 すべての単体テストに合格しました！');

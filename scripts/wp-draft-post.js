@@ -134,18 +134,18 @@ function parseInline(text) {
     return `@@INLINECODE${codes.length - 1}@@`;
   });
 
-  // リンク [text](url)
-  res = res.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-
   // 太字 **text** or __text__
   res = res.replace(/(\*\*|__)(.*?)\1/g, '<strong>$2</strong>');
 
-  // 斜体 *text* or _text_
+  // 斜体 *text* or _text_ (※リンクタグ生成前に実行し、target="_blank"等の属性やURLの誤変換を防止)
   res = res.replace(/(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
-  res = res.replace(/(?<!_)_(?!_)(.*?)(?<!_)_(?!_)/g, '<em>$1</em>');
+  res = res.replace(/(?<![a-zA-Z0-9_])_(?!_)(.+?)(?<!_)_(?![a-zA-Z0-9_])/g, '<em>$1</em>');
 
   // 打消し線 ~~text~~
   res = res.replace(/~~(.*?)~~/g, '<del>$1</del>');
+
+  // リンク [text](url) (※属性に target="_blank" を含むため、アンダースコア斜体処理の後に実行)
+  res = res.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
 
   // コードスパンの復元
   res = res.replace(/@@INLINECODE(\d+)@@/g, (m, idx) => {
