@@ -144,4 +144,17 @@ assert(!multiLinkOutput.includes('target="<em>blank'), 'target="_blank" のア�
 assert(!multiLinkOutput.includes('</em>blank"'), '斜体閉じタグが属性値に混入しないこと');
 console.log('  ✅ 通過: 複数リンク属性保護\n');
 
+// 10. テーブル内複数リンクの target="_blank" 属性破壊防止テスト
+console.log('Test 10: テーブル内複数リンクの属性保護');
+const tableMultiLinkInput = `
+| ツール | URL |
+| --- | --- |
+| 比較サイト | [サイトA](https://example.com/a) / [サイトB](https://example.com/b) |
+`.trim();
+const tableMultiLinkOutput = simpleMarkdownToHtml(tableMultiLinkInput);
+assert(tableMultiLinkOutput.includes('target="_blank"'), 'テーブル内のtarget="_blank"が保持されること');
+assert(!tableMultiLinkOutput.includes('target="<em>blank'), 'テーブル内のtarget="_blank"が斜体に誤変換されないこと');
+assert(tableMultiLinkOutput.includes('</table>'), 'テーブルが正しく閉じられていること');
+console.log('  ✅ 通過: テーブル内複数リンク保護\n');
+
 console.log('🎉 すべての単体テストに合格しました！');
