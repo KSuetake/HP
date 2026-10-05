@@ -156,14 +156,29 @@ function parseInline(text) {
   return res;
 }
 
-// 読者アバター（親しみやすいサックスブルーのシルエット＋?バッジ）
-const READER_AVATAR_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="60" height="60"><circle cx="32" cy="32" r="32" fill="#E2E8F0"/><circle cx="32" cy="24" r="11" fill="#64748B"/><path d="M14 54c0-9.9 8.1-18 18-18s18 8.1 18 18" fill="#64748B"/><circle cx="48" cy="18" r="8" fill="#3B82F6"/><text x="48" y="23" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">?</text></svg>`;
+// 吹き出し用モダンSVGアバタープリセット
+const AVATAR_SVGS = {
+  // 1. question: 疑問・質問・読者（サックスブルー / ?バッジ）
+  question: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#EFF6FF"/><circle cx="36" cy="27" r="13" fill="#3B82F6"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#3B82F6"/><circle cx="53" cy="20" r="10" fill="#2563EB"/><text x="53" y="25.5" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">?</text></svg>`,
 
-// 筆者アバター（知性的で信頼感のあるエメラルドグリーンのシルエット＋!バッジ）
-const AUTHOR_AVATAR_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="60" height="60"><circle cx="32" cy="32" r="32" fill="#CCFBF1"/><circle cx="32" cy="24" r="11" fill="#0D9488"/><path d="M14 54c0-9.9 8.1-18 18-18s18 8.1 18 18" fill="#0D9488"/><circle cx="48" cy="18" r="8" fill="#10B981"/><text x="48" y="23" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">!</text></svg>`;
+  // 2. worry: 不安・悩み・困り（アンバーオレンジ / 汗マーク）
+  worry: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#FFFBEB"/><circle cx="36" cy="27" r="13" fill="#F59E0B"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#F59E0B"/><path d="M53 14c0 4-4 8-4 8s-4-4-4-8a4 4 0 0 1 8 0z" fill="#D97706"/></svg>`,
 
-const READER_AVATAR_URI = 'data:image/svg+xml;utf8,' + encodeURIComponent(READER_AVATAR_SVG);
-const AUTHOR_AVATAR_URI = 'data:image/svg+xml;utf8,' + encodeURIComponent(AUTHOR_AVATAR_SVG);
+  // 3. answer: 回答・アドバイス・筆者（エメラルドグリーン / !バッジ）
+  answer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#ECFDF5"/><circle cx="36" cy="27" r="13" fill="#10B981"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#10B981"/><circle cx="53" cy="20" r="10" fill="#059669"/><text x="53" y="25.5" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">!</text></svg>`,
+
+  // 4. idea: ひらめき・コツ（イエローゴールド / 電球マーク）
+  idea: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#FEF9C3"/><circle cx="36" cy="27" r="13" fill="#EAB308"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#EAB308"/><circle cx="53" cy="20" r="10" fill="#CA8A04"/><circle cx="53" cy="18" r="3.5" fill="#FFFFFF"/><rect x="51.5" y="21" width="3" height="2" rx="0.5" fill="#FFFFFF"/></svg>`,
+
+  // 5. check: 納得・太鼓判・解決（ティールブルー / チェックマーク）
+  check: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#F0FDFA"/><circle cx="36" cy="27" r="13" fill="#14B8A6"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#14B8A6"/><circle cx="53" cy="20" r="10" fill="#0D9488"/><path d="M49 20.5l2.5 2.5 5.5-5.5" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
+
+function getAvatarUri(type) {
+  const cleanType = (type || '').toLowerCase();
+  const svg = AVATAR_SVGS[cleanType] || AVATAR_SVGS.question;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg.replace(/\s+/g, ' ').trim());
+}
 
 /**
  * リスト（箇条書き・番号付きリスト）の階層対応変換
@@ -255,27 +270,29 @@ function simpleMarkdownToHtml(markdown) {
     const cleanContent = content.trim();
     const argList = (args || '').trim();
 
-    // ① 吹き出し ::: balloon <reader|author|名前> [left|right]
+    // ① 吹き出し ::: balloon [type] [left|right] [name:名前]
     if (type.startsWith('balloon')) {
-      const parts = argList.split(/\s+/);
-      const role = parts[0] || (type === 'balloon-author' ? 'author' : 'reader');
-      const side = parts[1] || (role === 'author' ? 'right' : 'left');
+      const parts = argList.split(/\s+/).filter(Boolean);
+      let balloonType = parts[0] || (type === 'balloon-author' ? 'answer' : 'question');
 
-      let name = role;
-      let posClass = side === 'right' ? 'sbp-r' : 'sbp-l';
-      let avatarUri = READER_AVATAR_URI;
-      if (role === 'reader' || role === 'user') {
-        name = '読者';
-        posClass = 'sbp-l';
-        avatarUri = READER_AVATAR_URI;
-      } else if (role === 'author' || role === 'admin') {
-        name = '筆者';
-        posClass = side === 'left' ? 'sbp-l' : 'sbp-r';
-        avatarUri = AUTHOR_AVATAR_URI;
-      }
+      // 旧キーワードの互換マッピング
+      if (balloonType === 'reader' || balloonType === 'user') balloonType = 'question';
+      if (balloonType === 'author' || balloonType === 'admin') balloonType = 'answer';
+
+      // 既定の左右配置（質問・悩み系は左、回答・ひらめき系は右）
+      const isRightDefault = ['answer', 'idea', 'check'].includes(balloonType.toLowerCase());
+      const side = parts.find(p => p === 'left' || p === 'right') || (isRightDefault ? 'right' : 'left');
+      const posClass = side === 'right' ? 'sbp-r' : 'sbp-l';
+
+      // 名前指定（明示的に name:〇〇 と指定された場合のみ表示）
+      const namePart = parts.find(p => p.startsWith('name:'));
+      let displayName = namePart ? namePart.replace(/^name:/, '') : '';
+
+      const avatarUri = getAvatarUri(balloonType);
+      const nameHtml = displayName ? `<div class="speech-name">${parseInline(displayName)}</div>` : '';
 
       const innerHtml = cleanContent.split(/\r?\n/).filter(l => l.trim()).map(line => `<p>${parseInline(line.trim())}</p>`).join('');
-      return `\n\n<div class="speech-wrap sb-id-1 sbs-stn ${posClass}"><div class="speech-person"><figure class="speech-icon"><img src="${avatarUri}" alt="${name}" class="speech-icon-image" width="60" height="60"></figure><div class="speech-name">${name}</div></div><div class="speech-balloon">${innerHtml}</div></div>\n\n`;
+      return `\n\n<div class="speech-wrap sb-id-1 sbs-stn ${posClass}"><div class="speech-person"><figure class="speech-icon"><img src="${avatarUri}" alt="${balloonType}" class="speech-icon-image" width="60" height="60"></figure>${nameHtml}</div><div class="speech-balloon">${innerHtml}</div></div>\n\n`;
     }
 
     // ② ボタン ::: btn [url] または ::: btn-primary [url]
@@ -348,7 +365,7 @@ function simpleMarkdownToHtml(markdown) {
       return `\n\n${parseLists(m.trim())}\n\n`;
     });
     // 段落分割
-    const paragraphs = innerText.split(/\n\s*\n/).map(block => {
+    let paragraphs = innerText.split(/\n\s*\n/).map(block => {
       const trimmed = block.trim();
       if (!trimmed) return '';
       if (trimmed.startsWith('<ul') || trimmed.startsWith('<ol') || trimmed.startsWith('<blockquote') || trimmed.startsWith('<div')) {
@@ -356,6 +373,19 @@ function simpleMarkdownToHtml(markdown) {
       }
       return `<p>${parseInline(trimmed.replace(/\n/g, '<br>'))}</p>`;
     }).filter(Boolean).join('');
+
+    // 最後のブロック要素（<p>, <ul>, <ol>）に margin-bottom: 0 を付与して余白の肥大化・不自然な空行を防止
+    const lastBlockMatch = paragraphs.match(/<(p|ul|ol)[^>]*>[\s\S]*?<\/\1>\s*$/);
+    if (lastBlockMatch) {
+      const lastBlock = lastBlockMatch[0];
+      const updatedBlock = lastBlock.replace(/^<(p|ul|ol)([^>]*)>/, (m, tag, attrs) => {
+        if (attrs.includes('style="')) {
+          return `<${tag}${attrs.replace('style="', 'style="margin-bottom: 0 !important; ')}>`;
+        }
+        return `<${tag} style="margin-bottom: 0 !important;"${attrs}>`;
+      });
+      paragraphs = paragraphs.slice(0, paragraphs.length - lastBlock.length) + updatedBlock;
+    }
 
     return `\n\n<div class="sp-box ${config.cssClass}"><div class="box-title"><strong>${parseInline(title)}</strong></div><div class="box-content">${paragraphs}</div></div>\n\n`;
   });
@@ -368,13 +398,13 @@ function simpleMarkdownToHtml(markdown) {
     const parseRow = (row, isTh = false) => {
       const cells = row.split('|').slice(1, -1).map(c => c.trim());
       const tag = isTh ? 'th' : 'td';
-      return '<tr>' + cells.map(c => `<${tag} style="padding: 10px 14px; vertical-align: top;">${parseInline(c)}</${tag}>`).join('') + '</tr>';
+      return '<tr>' + cells.map(c => `<${tag} style="padding: 10px 14px; white-space: normal !important; word-break: break-word; vertical-align: top;">${parseInline(c)}</${tag}>`).join('') + '</tr>';
     };
 
     const header = parseRow(rows[0], true);
     const bodyRows = rows.slice(2).map(r => parseRow(r, false)).join('');
 
-    return `\n\n<div class="scrollable-table responsive-table-wrapper" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.8em 0;"><table class="wp-block-table is-style-stripes" style="width: 100%; border-collapse: collapse; table-layout: auto; word-break: break-word;"><thead>${header}</thead><tbody>${bodyRows}</tbody></table></div>\n\n`;
+    return `\n\n<div class="table-container responsive-table-wrap" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.8em 0;"><table class="wp-block-table is-style-stripes" style="width: 100%; border-collapse: collapse; table-layout: auto;"><thead>${header}</thead><tbody>${bodyRows}</tbody></table></div>\n\n`;
   });
 
   // 7. 見出し（前後に空行を確保し、後続ブロックとの癒着を防止）

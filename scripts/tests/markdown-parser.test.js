@@ -56,10 +56,9 @@ const containerInput = `
 
 const containerOutput = simpleMarkdownToHtml(containerInput);
 assert(containerOutput.includes('speech-wrap'), '吹き出しクラスが含まれること');
-assert(containerOutput.includes('読者'), 'reader が 読者 に変換されること');
 assert(containerOutput.includes('sbp-l'), '読者の吹き出しが左配置(sbp-l)になること');
-assert(containerOutput.includes('筆者'), 'author が 筆者 に変換されること');
 assert(containerOutput.includes('sbp-r'), '筆者の吹き出しが右配置(sbp-r)になること');
+assert(!containerOutput.includes('<div class="speech-name">読者</div>'), '不要な名前ラベルが出力されないこと');
 assert(containerOutput.includes('wp-block-button'), 'ボタンブロックが含まれること');
 assert(containerOutput.includes('href="https://stk-lab.org"'), 'ボタンリンクが反映されること');
 console.log('  ✅ 通過: ミニマルコンテナ\n');
@@ -74,8 +73,9 @@ const tableInput = `
 `.trim();
 
 const tableOutput = simpleMarkdownToHtml(tableInput);
-assert(tableOutput.includes('class="scrollable-table responsive-table-wrapper"'), 'Cocoon横スクロールラッパーが含まれること');
-assert(tableOutput.includes('<table class="wp-block-table is-style-stripes"'), 'Gutenbergテーブルクラスが含まれること');
+assert(tableOutput.includes('class="table-container responsive-table-wrap"'), 'レスポンシブラッパーが含まれること');
+assert(tableOutput.includes('<table class="wp-block-table is-style-stripes" style="width: 100%; border-collapse: collapse; table-layout: auto;"'), '全幅テーブルスタイルが含まれること');
+assert(tableOutput.includes('white-space: normal !important;'), 'nowrap打ち消しスタイルが含まれること');
 assert(tableOutput.includes('>ツール名</th>'), 'ヘッダーthが含まれること');
 assert(tableOutput.includes('>Keepa</td>'), 'セルtdが含まれること');
 console.log('  ✅ 通過: Markdown テーブル\n');
@@ -120,7 +120,7 @@ const complexAlertInput = `
 const complexAlertOutput = simpleMarkdownToHtml(complexAlertInput);
 assert(complexAlertOutput.includes('実践ステップ'), 'カスタムタイトルが含まれること');
 assert(complexAlertOutput.includes('<ul><li>最初のステップを試す</li><li>次のステップに進む</li></ul>'), 'リストがHTMLリストとして含まれること');
-assert(complexAlertOutput.includes('<p>これで準備完了です。</p>'), '段落が含まれること');
+assert(complexAlertOutput.includes('これで準備完了です。</p>'), '段落が含まれること');
 console.log('  ✅ 通過: GFM Alerts 内のリストと段落\n');
 
 // 8. テーブル内のインライン要素テスト
@@ -185,7 +185,8 @@ const alertListInput = `
 `.trim();
 const alertListOutput = simpleMarkdownToHtml(alertListInput);
 assert(alertListOutput.includes('<p>ネットショッピングで失敗しないための簡単なフィルターです。</p>'), '説明文が独立した段落として変換されること');
-assert(alertListOutput.includes('<ul><li><strong>評価の分布をチェック</strong>: 星5と星1を注意</li><li><strong>相場を見切る</strong>: 半額以下は危険</li></ul>'), '箇条書きが独立したリストタグとして変換されること');
+assert(alertListOutput.includes('<li><strong>評価の分布をチェック</strong>: 星5と星1を注意</li><li><strong>相場を見切る</strong>: 半額以下は危険</li></ul>'), '箇条書きが独立したリストタグとして変換されること');
+assert(alertListOutput.includes('style="margin-bottom: 0 !important;"'), '最後のリスト要素にmargin-bottom: 0が付与されること');
 assert(!alertListOutput.includes('* **評価の分布をチェック**'), 'アスタリスクがテキストとして剥き出しにならないこと');
 console.log('  ✅ 通過: GFM Alerts 内の箇条書き分離\n');
 
@@ -201,22 +202,27 @@ assert(headingTightOutput.includes('<strong>「あなたを長く引き止める
 assert(headingTightOutput.includes('<p>YouTubeのホーム画面は'), '見出し直後の文章がpタグで囲まれること');
 console.log('  ✅ 通過: 見出し直後の太字パース\n');
 
-// 14. 吹き出しの洗練化（SVGアバターと構造）テスト
-console.log('Test 14: 吹き出しのSVGアバターと構造');
+// 14. 吹き出しの洗練化（SVGアバター・複数タイプ・名前非表示）テスト
+console.log('Test 14: 吹き出しのSVGアバター・複数タイプ・名前非表示');
 const balloonInput = `
-::: balloon reader
+::: balloon question
 質問があります。
 :::
-::: balloon author
+::: balloon answer
 お答えします！
+:::
+::: balloon idea name:アドバイザー
+コツを紹介します。
 :::
 `.trim();
 const balloonOutput = simpleMarkdownToHtml(balloonInput);
 assert(balloonOutput.includes('<figure class="speech-icon"><img src="data:image/svg+xml;utf8,'), '吹き出しにSVGアバター画像が含まれること');
-assert(balloonOutput.includes('alt="読者"'), '読者のaltテキストが含まれること');
-assert(balloonOutput.includes('alt="筆者"'), '筆者のaltテキストが含まれること');
+assert(balloonOutput.includes('alt="question"'), 'questionのaltテキストが含まれること');
+assert(balloonOutput.includes('alt="answer"'), 'answerのaltテキストが含まれること');
+assert(!balloonOutput.includes('<div class="speech-name">読者</div>'), 'デフォルトで名前ラベルが出力されないこと');
+assert(balloonOutput.includes('<div class="speech-name">アドバイザー</div>'), '明示指定時は名前ラベルが出力されること');
 assert(balloonOutput.includes('class="speech-icon-image"'), 'Cocoonのアイコンクラスが付与されること');
-console.log('  ✅ 通過: 吹き出しSVGアバター\n');
+console.log('  ✅ 通過: 吹き出しSVGアバター・複数タイプ\n');
 
 // 15. テーブルのレスポンシブスタイル付与テスト
 console.log('Test 15: テーブルのレスポンシブスタイル');
@@ -226,8 +232,20 @@ const tableStyleInput = `
 | 1 | 2 |
 `.trim();
 const tableStyleOutput = simpleMarkdownToHtml(tableStyleInput);
-assert(tableStyleOutput.includes('style="width: 100%; border-collapse: collapse; table-layout: auto; word-break: break-word;"'), 'テーブルにPC全幅表示用スタイルが含まれること');
-assert(tableStyleOutput.includes('style="padding: 10px 14px; vertical-align: top;"'), 'セルに適切なパディングスタイルが含まれること');
+assert(tableStyleOutput.includes('style="width: 100%; border-collapse: collapse; table-layout: auto;"'), 'テーブルにPC全幅表示用スタイルが含まれること');
+assert(tableStyleOutput.includes('white-space: normal !important;'), 'セルに折り返し許可スタイルが含まれること');
 console.log('  ✅ 通過: テーブルレスポンシブスタイル\n');
 
-console.log('🎉 すべての単体テスト（全15件）に合格しました！');
+// 16. ボックス内の最後の段落の余白（margin-bottom: 0）テスト
+console.log('Test 16: ボックス内の最後の段落の余白制御');
+const alertMarginInput = `
+> [!WARNING]
+> 大量要約を行う際の注意点
+>
+> 短時間に極端な数（数十本以上）のアクセスを行うと制限されます。
+`.trim();
+const alertMarginOutput = simpleMarkdownToHtml(alertMarginInput);
+assert(alertMarginOutput.includes('style="margin-bottom: 0 !important;"'), 'ボックス内最後の段落にmargin-bottom: 0が付与されること');
+console.log('  ✅ 通過: ボックス内余白制御\n');
+
+console.log('🎉 すべての単体テスト（全16件）に合格しました！');
