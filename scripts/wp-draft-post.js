@@ -171,12 +171,77 @@ const AVATAR_SVGS = {
   idea: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#FEF9C3"/><circle cx="36" cy="27" r="13" fill="#EAB308"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#EAB308"/><circle cx="53" cy="20" r="10" fill="#CA8A04"/><circle cx="53" cy="18" r="3.5" fill="#FFFFFF"/><rect x="51.5" y="21" width="3" height="2" rx="0.5" fill="#FFFFFF"/></svg>`,
 
   // 5. check: 納得・太鼓判・解決（ティールブルー / チェックマーク）
-  check: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#F0FDFA"/><circle cx="36" cy="27" r="13" fill="#14B8A6"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#14B8A6"/><circle cx="53" cy="20" r="10" fill="#0D9488"/><path d="M49 20.5l2.5 2.5 5.5-5.5" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  check: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#F0FDFA"/><circle cx="36" cy="27" r="13" fill="#14B8A6"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#14B8A6"/><circle cx="53" cy="20" r="10" fill="#0D9488"/><path d="M49 20.5l2.5 2.5 5.5-5.5" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+
+  // 6. smile: 笑顔・親しみ（ライムグリーン / スマイル）
+  smile: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#F7FEE7"/><circle cx="36" cy="27" r="13" fill="#84CC16"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#84CC16"/><circle cx="53" cy="20" r="10" fill="#65A30D"/><path d="M49 20c1 2.5 7 2.5 8 0" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`,
+
+  // 7. thinking: 熟考・思案（パープル / クエスチョンドット）
+  thinking: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#FAF5FF"/><circle cx="36" cy="27" r="13" fill="#A855F7"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#A855F7"/><circle cx="53" cy="20" r="10" fill="#9333EA"/><circle cx="53" cy="18" r="2.5" fill="#FFFFFF"/><circle cx="53" cy="23" r="1.5" fill="#FFFFFF"/></svg>`,
+
+  // 8. shock: 驚き・ハッと気付き（ローズレッド / びっくりマーク）
+  shock: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#FFF1F2"/><circle cx="36" cy="27" r="13" fill="#F43F5E"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#F43F5E"/><circle cx="53" cy="20" r="10" fill="#E11D48"/><circle cx="53" cy="20" r="3" fill="#FFFFFF"/></svg>`,
+
+  // 9. robot: AI・自動化・システム（シアンブルー / アンテナロボ）
+  robot: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#ECFEFF"/><rect x="23" y="15" width="26" height="22" rx="5" fill="#06B6D4"/><circle cx="30" cy="24" r="3" fill="#FFFFFF"/><circle cx="42" cy="24" r="3" fill="#FFFFFF"/><rect x="28" y="30" width="16" height="2.5" rx="1" fill="#FFFFFF"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#06B6D4"/><line x1="36" y1="15" x2="36" y2="10" stroke="#0891B2" stroke-width="2.5"/><circle cx="36" cy="9" r="2.5" fill="#0891B2"/></svg>`,
+
+  // 10. star: 注目・おすすめ・ハイライト（アンバーゴールド / 星）
+  star: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#FFFBEB"/><circle cx="36" cy="27" r="13" fill="#F59E0B"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#F59E0B"/><circle cx="53" cy="20" r="10" fill="#D97706"/><path d="M53 15.5l1.4 3 3.3.4-2.4 2.3.6 3.3-2.9-1.6-2.9 1.6.6-3.3-2.4-2.3 3.3-.4z" fill="#FFFFFF"/></svg>`,
+
+  // 11. user: 汎用ユーザー（スレートグレー）
+  user: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="36" fill="#F8FAFC"/><circle cx="36" cy="27" r="13" fill="#64748B"/><path d="M16 61c0-11 9-20 20-20s20 9 20 20" fill="#64748B"/></svg>`
 };
 
-function getAvatarUri(type) {
-  const cleanType = (type || '').toLowerCase();
-  const svg = AVATAR_SVGS[cleanType] || AVATAR_SVGS.question;
+// 別名エイリアス
+AVATAR_SVGS.reader = AVATAR_SVGS.question;
+AVATAR_SVGS.author = AVATAR_SVGS.answer;
+AVATAR_SVGS.think = AVATAR_SVGS.thinking;
+AVATAR_SVGS.ai = AVATAR_SVGS.robot;
+AVATAR_SVGS.surprise = AVATAR_SVGS.shock;
+
+/**
+ * 文字列が絵文字かどうかを判定
+ */
+function isEmoji(str) {
+  if (!str) return false;
+  const trimmed = str.trim();
+  // サロゲートペアやUnicode絵文字ブロックの検出
+  return /^(?:\p{Extended_Pictographic}|\p{Emoji_Presentation}|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\u2600-\u27BF])+$/u.test(trimmed);
+}
+
+/**
+ * 任意の絵文字から丸型アバターSVGデータURIを自動生成
+ */
+function generateEmojiAvatarSvg(emoji, isRight = false) {
+  const bgColor = isRight ? '#ECFDF5' : '#F0F9FF';
+  const borderColor = isRight ? '#10B981' : '#3B82F6';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="60" height="60"><circle cx="36" cy="36" r="34" fill="${bgColor}" stroke="${borderColor}" stroke-width="2.5"/><text x="36" y="46" font-size="32" text-anchor="middle" font-family="'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Twemoji Mozilla',sans-serif">${emoji.trim()}</text></svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg.replace(/\s+/g, ' ').trim());
+}
+
+/**
+ * アバター指定（タイプ名、絵文字、画像URL）から適切なURIを解決
+ */
+function getAvatarUri(avatarSpec, isRight = false) {
+  const spec = (avatarSpec || '').trim();
+  if (!spec) {
+    const defaultSvg = isRight ? AVATAR_SVGS.answer : AVATAR_SVGS.question;
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(defaultSvg.replace(/\s+/g, ' ').trim());
+  }
+
+  // 1. 画像URL指定（http, https, 相対パス、画像拡張子）
+  if (spec.startsWith('http://') || spec.startsWith('https://') || spec.startsWith('/') || /\.(png|jpe?g|gif|svg|webp)$/i.test(spec)) {
+    return spec;
+  }
+
+  // 2. 絵文字指定（🤖, 💡, 🙋‍♂️, 🐱 など全絵文字）
+  if (isEmoji(spec)) {
+    return generateEmojiAvatarSvg(spec, isRight);
+  }
+
+  // 3. プリセットSVG指定
+  const cleanType = spec.toLowerCase();
+  const svg = AVATAR_SVGS[cleanType] || (isRight ? AVATAR_SVGS.answer : AVATAR_SVGS.question);
   return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg.replace(/\s+/g, ' ').trim());
 }
 
@@ -270,25 +335,27 @@ function simpleMarkdownToHtml(markdown) {
     const cleanContent = content.trim();
     const argList = (args || '').trim();
 
-    // ① 吹き出し ::: balloon [type] [left|right] [name:名前]
+    // ① 吹き出し ::: balloon [type/emoji/url] [left|right] [name:名前]
     if (type.startsWith('balloon')) {
       const parts = argList.split(/\s+/).filter(Boolean);
       let balloonType = parts[0] || (type === 'balloon-author' ? 'answer' : 'question');
 
       // 旧キーワードの互換マッピング
-      if (balloonType === 'reader' || balloonType === 'user') balloonType = 'question';
+      if (balloonType === 'reader') balloonType = 'question';
       if (balloonType === 'author' || balloonType === 'admin') balloonType = 'answer';
 
-      // 既定の左右配置（質問・悩み系は左、回答・ひらめき系は右）
-      const isRightDefault = ['answer', 'idea', 'check'].includes(balloonType.toLowerCase());
+      // 既定の左右配置（回答・ひらめき系・星系は右、質問・悩み・ロボット・ユーザー系は左）
+      const rightKeywords = ['answer', 'idea', 'check', 'star', 'right'];
+      const isRightDefault = rightKeywords.includes(balloonType.toLowerCase());
       const side = parts.find(p => p === 'left' || p === 'right') || (isRightDefault ? 'right' : 'left');
-      const posClass = side === 'right' ? 'sbp-r' : 'sbp-l';
+      const isRight = side === 'right';
+      const posClass = isRight ? 'sbp-r' : 'sbp-l';
 
       // 名前指定（明示的に name:〇〇 と指定された場合のみ表示）
       const namePart = parts.find(p => p.startsWith('name:'));
       let displayName = namePart ? namePart.replace(/^name:/, '') : '';
 
-      const avatarUri = getAvatarUri(balloonType);
+      const avatarUri = getAvatarUri(balloonType, isRight);
       const nameHtml = displayName ? `<div class="speech-name">${parseInline(displayName)}</div>` : '';
 
       const innerHtml = cleanContent.split(/\r?\n/).filter(l => l.trim()).map(line => `<p>${parseInline(line.trim())}</p>`).join('');
@@ -390,7 +457,7 @@ function simpleMarkdownToHtml(markdown) {
     return `\n\n<div class="sp-box ${config.cssClass}"><div class="box-title"><strong>${parseInline(title)}</strong></div><div class="box-content">${paragraphs}</div></div>\n\n`;
   });
 
-  // 6. テーブル（Markdown Tables）の変換（レスポンシブ・PC全幅表示）
+  // 6. テーブル（Markdown Tables）の変換（レスポンシブ・PCワイド表示・セル幅自動最適化）
   text = text.replace(/(?:(?:^|\n)\|[^\n]+\|\r?\n\|[-:| ]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g, (match) => {
     const rows = match.trim().split(/\r?\n/).map(r => r.trim()).filter(Boolean);
     if (rows.length < 2) return match;
@@ -398,13 +465,24 @@ function simpleMarkdownToHtml(markdown) {
     const parseRow = (row, isTh = false) => {
       const cells = row.split('|').slice(1, -1).map(c => c.trim());
       const tag = isTh ? 'th' : 'td';
-      return '<tr>' + cells.map(c => `<${tag} style="padding: 10px 14px; white-space: normal !important; word-break: break-word; vertical-align: top;">${parseInline(c)}</${tag}>`).join('') + '</tr>';
+      return '<tr>' + cells.map(c => {
+        // 短い英数・記号（Level 1, Lv.2, ★☆☆, Shift + >, 記号など、概ね8文字以下の短文字）は nowrap & center
+        // 長い解説テキストは normal & break-word で幅を集中
+        const cleanText = c.replace(/`([^`]+)`/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1').trim();
+        const isShortLabel = cleanText.length <= 8 && (
+          /^(Level\s*\d+|Lv\.?\s*\d+|No\.?\s*\d+|[★☆]+|[A-Za-z0-9\s+<>-]+|キー操作|機能|ジャンル)$/i.test(cleanText) ||
+          /^[★☆\s]+$/.test(cleanText)
+        );
+
+        const alignStyle = isShortLabel ? 'white-space: nowrap !important; text-align: center; vertical-align: middle;' : 'white-space: normal !important; word-break: break-word; vertical-align: top;';
+        return `<${tag} style="padding: 10px 14px; ${alignStyle}">${parseInline(c)}</${tag}>`;
+      }).join('') + '</tr>';
     };
 
     const header = parseRow(rows[0], true);
     const bodyRows = rows.slice(2).map(r => parseRow(r, false)).join('');
 
-    return `\n\n<div class="table-container responsive-table-wrap" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.8em 0;"><table class="wp-block-table is-style-stripes" style="width: 100%; border-collapse: collapse; table-layout: auto;"><thead>${header}</thead><tbody>${bodyRows}</tbody></table></div>\n\n`;
+    return `\n\n<div class="table-container responsive-table-wrap" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.8em -24px; width: calc(100% + 48px); max-width: calc(100% + 48px);"><table class="wp-block-table is-style-stripes" style="width: 100%; border-collapse: collapse; table-layout: auto;"><thead>${header}</thead><tbody>${bodyRows}</tbody></table></div>\n\n`;
   });
 
   // 7. 見出し（前後に空行を確保し、後続ブロックとの癒着を防止）

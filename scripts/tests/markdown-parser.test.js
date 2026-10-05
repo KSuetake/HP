@@ -224,17 +224,18 @@ assert(balloonOutput.includes('<div class="speech-name">アドバイザー</div>
 assert(balloonOutput.includes('class="speech-icon-image"'), 'Cocoonのアイコンクラスが付与されること');
 console.log('  ✅ 通過: 吹き出しSVGアバター・複数タイプ\n');
 
-// 15. テーブルのレスポンシブスタイル付与テスト
-console.log('Test 15: テーブルのレスポンシブスタイル');
+// 15. テーブルのレスポンシブスタイル・ワイド表示・セル幅自動最適化テスト
+console.log('Test 15: テーブルのワイド表示とセル幅自動最適化');
 const tableStyleInput = `
-| A | B |
-| --- | --- |
-| 1 | 2 |
+| Level | タイトル | 主な効果と特徴 |
+| --- | --- | --- |
+| Level 1 | チャンネル厳選 | ホーム画面のおすすめを遮断して時間を守る |
 `.trim();
 const tableStyleOutput = simpleMarkdownToHtml(tableStyleInput);
-assert(tableStyleOutput.includes('style="width: 100%; border-collapse: collapse; table-layout: auto;"'), 'テーブルにPC全幅表示用スタイルが含まれること');
-assert(tableStyleOutput.includes('white-space: normal !important;'), 'セルに折り返し許可スタイルが含まれること');
-console.log('  ✅ 通過: テーブルレスポンシブスタイル\n');
+assert(tableStyleOutput.includes('margin: 1.8em -24px; width: calc(100% + 48px);'), 'ワイド表示マージンが含まれること');
+assert(tableStyleOutput.includes('white-space: nowrap !important; text-align: center;'), 'Level 1 などの短文字セルが折り返し禁止（nowrap）になっていること');
+assert(tableStyleOutput.includes('white-space: normal !important; word-break: break-word;'), '説明文セルに折り返し許可スタイルが含まれること');
+console.log('  ✅ 通過: テーブルのワイド表示とセル幅自動最適化\n');
 
 // 16. ボックス内の最後の段落の余白（margin-bottom: 0）テスト
 console.log('Test 16: ボックス内の最後の段落の余白制御');
@@ -248,4 +249,29 @@ const alertMarginOutput = simpleMarkdownToHtml(alertMarginInput);
 assert(alertMarginOutput.includes('style="margin-bottom: 0 !important;"'), 'ボックス内最後の段落にmargin-bottom: 0が付与されること');
 console.log('  ✅ 通過: ボックス内余白制御\n');
 
-console.log('🎉 すべての単体テスト（全16件）に合格しました！');
+// 17. 吹き出しの絵文字アバター自動生成・画像URL指定テスト
+console.log('Test 17: 吹き出しの絵文字アバター自動生成と画像URL指定');
+const emojiBalloonInput = `
+::: balloon 🤖
+AIによる自動要約です。
+:::
+::: balloon 💡 right
+右側のひらめき絵文字アバターです。
+:::
+::: balloon https://example.com/custom-avatar.png
+カスタム画像URLのアバターです。
+:::
+::: balloon robot
+プリセットSVGのロボットです。
+:::
+`.trim();
+const emojiBalloonOutput = simpleMarkdownToHtml(emojiBalloonInput);
+assert(emojiBalloonOutput.includes('<img src="data:image/svg+xml;utf8,'), '絵文字アバターがSVGデータURIとして生成されること');
+assert(emojiBalloonOutput.includes('🤖'), '生成されたSVG内に指定した絵文字が含まれること');
+assert(emojiBalloonOutput.includes('💡'), '生成されたSVG内に指定した絵文字が含まれること');
+assert(emojiBalloonOutput.includes('sbp-r'), 'right指定時に右側配置クラスが付与されること');
+assert(emojiBalloonOutput.includes('<img src="https://example.com/custom-avatar.png"'), '画像URLが直接srcにセットされること');
+assert(emojiBalloonOutput.includes('alt="robot"'), 'robotプリセットが正常に解決されること');
+console.log('  ✅ 通過: 絵文字アバター自動生成と画像URL指定\n');
+
+console.log('🎉 すべての単体テスト（全17件）に合格しました！');
