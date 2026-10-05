@@ -23,3 +23,6 @@ Thumbs.db
 
 # Archives & Binaries
 *.zip
+
+# Scratch & Temporary Verification Files
+scratch/
